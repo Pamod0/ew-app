@@ -1,0 +1,344 @@
+<div class="card mb-0 pl-8 pr-8 border-noround border-none">
+  <p-menubar
+    [model]="items"
+    class="bg-dark"
+    [style]="{
+      border: 'none',
+      borderRadius: 0,
+      backgroundColor: '#ffffff'
+    }"
+  >
+    <ng-template pTemplate="start">
+      <img
+        src="../../../../assets/layout/images/logo-main.png"
+        height="50"
+        class="mr-2"
+      />
+    </ng-template>
+
+    <ng-template pTemplate="end">
+      <div class="card border-noround flex justify-content-center p-0">
+        <p-button
+          [style]="{
+            color: 'white',
+            backgroundColor: 'black',
+            borderColor: 'black'
+          }"
+          label="JOIN WITH US"
+        >
+        </p-button>
+      </div>
+    </ng-template>
+  </p-menubar>
+</div>
+
+<div class="card border-noround border-none p-0 m-0">
+  <!-- <div style="position: relative;">
+        <div style="position: absolute; left: 50%;">
+            <h1 class="text-center"> Save The Ocean With Us </h1>
+        </div>
+        <div style="height: auto; width: 100%;">
+            <img src="../../../assets/layout/images/landing/landing-banner.png" alt="landing-banner">
+        </div>
+    </div> -->
+
+  <div
+    class="card border-noround border-none"
+    [style]="
+      {
+        backgroundImage: 'url(../../../assets/layout/images/landing/landing-banner.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        width: '100%',
+        height: '50vh',
+      }"
+  >
+    <div>
+      <h1 class="text-center" style="color: #004363">Save The Ocean With Us</h1>
+    </div>
+  </div>
+</div>
+
+<div
+  class="section pt-8 pb-8"
+  style="background: linear-gradient(to bottom, #0057ff, #ffffff)"
+>
+  <div
+    class="card border-noround border-none"
+    style="background-color: #00000000"
+  >
+    <p-carousel
+      [value]="products"
+      [numVisible]="2"
+      [numScroll]="1"
+      [responsiveOptions]="responsiveOptions"
+      [showNavigators]="true"
+      [showIndicators]="false"
+      [style]="styleObjCarousel"
+      class="pl-8 pr-8"
+    >
+      <ng-template pTemplate="header">
+        <p
+          class="font-bold flex align-items-center justify-content-center text-4xl"
+          style="margin-bottom: 3rem !important"
+        >
+          Top Contributors
+        </p>
+      </ng-template>
+      <ng-template let-product pTemplate="item">
+        <div class="product-item flex justify-content-center">
+          <div class="product-item-content">
+            <div class="mb-3">
+              <img
+                src="./../../../assets/layout/images/landing/{{
+                  product.image
+                }}"
+                [alt]="product.name"
+                class="product-image"
+                style="width: 330px; height: auto"
+              />
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="footer">
+        <div class="flex align-items-center justify-content-end">
+          <p-button
+            [style]="{
+              color: 'white',
+              backgroundColor: 'black',
+              borderColor: 'black'
+            }"
+            label="More"
+          >
+          </p-button>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+</div>
+
+<div class="bg-white pt-6">
+  <div class="grid flex align-items-center justify-content-center pb-8">
+    <div class="flex">
+      <div class="col-3">
+        <img
+          src="../../../assets/layout/images/landing/national-logos/national-emblem.png"
+          alt=""
+          style="height: 230px"
+        />
+      </div>
+      <div class="col-9 flex align-items-center justify-content-center">
+        <h1 class="">Ministry of Urban Development and Housing</h1>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="grid flex align-items-center justify-content-center gap-0">
+      <div
+        class="lg:col-2 md:col-4 sm:col-6 flex align-items-center justify-content-center"
+      >
+        <img
+          src="../../../assets/layout/images/landing/national-logos/nat-logo-1.png"
+          alt=""
+        />
+      </div>
+      <div
+        class="lg:col-2 md:col-4 sm:col-6 flex align-items-center justify-content-center"
+      >
+        <img
+          src="../../../assets/layout/images/landing/national-logos/nat-logo-2.png"
+          alt=""
+        />
+      </div>
+      <div
+        class="lg:col-2 md:col-4 sm:col-6 flex align-items-center justify-content-center"
+      >
+        <img
+          src="../../../assets/layout/images/landing/national-logos/nat-logo-3.png"
+          alt=""
+        />
+      </div>
+      <div
+        class="lg:col-2 md:col-4 sm:col-6 flex align-items-center justify-content-center"
+      >
+        <img
+          src="../../../assets/layout/images/landing/national-logos/nat-logo-4.png"
+          alt=""
+        />
+      </div>
+      <div
+        class="lg:col-2 md:col-4 sm:col-6 flex align-items-center justify-content-center"
+        style="scale: 0.8"
+      >
+        <img
+          src="../../../assets/layout/images/landing/national-logos/nat-logo-5.png"
+          alt=""
+        />
+      </div>
+      <div
+        class="lg:col-2 md:col-4 sm:col-6 flex align-items-center justify-content-center"
+      >
+        <img
+          src="../../../assets/layout/images/landing/national-logos/nat-logo-6.png"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="grid flex align-items-center justify-content-center gap-0">
+      <div
+        class="lg:col-2 md:col-4 sm:col-6 flex align-items-center justify-content-center"
+      >
+        <img
+          src="../../../assets/layout/images/landing/national-logos/nat-logo-7.png"
+          alt=""
+        />
+      </div>
+      <div
+        class="lg:col-2 md:col-4 sm:col-6 flex align-items-center justify-content-center"
+      >
+        <img
+          src="../../../assets/layout/images/landing/national-logos/nat-logo-8.png"
+          alt=""
+        />
+      </div>
+      <div
+        class="lg:col-2 md:col-4 sm:col-6 flex align-items-center justify-content-center"
+        style="scale: 0.8"
+      >
+        <img
+          src="../../../assets/layout/images/landing/national-logos/nat-logo-9.png"
+          alt=""
+        />
+      </div>
+      <div
+        class="lg:col-2 md:col-4 sm:col-6 flex align-items-center justify-content-center"
+      >
+        <img
+          src="../../../assets/layout/images/landing/national-logos/nat-logo-10.png"
+          alt=""
+        />
+      </div>
+      <div
+        class="lg:col-2 md:col-4 sm:col-6 flex align-items-center justify-content-center"
+      >
+        <img
+          src="../../../assets/layout/images/landing/national-logos/nat-logo-11.png"
+          alt=""
+        />
+      </div>
+      <div
+        class="lg:col-2 md:col-4 sm:col-6 flex align-items-center justify-content-center"
+      >
+        <img
+          src="../../../assets/layout/images/landing/national-logos/nat-logo-12.png"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="grid flex align-items-center justify-content-center pt-4 pb-4 bg-black"
+>
+  <div class="col-12">
+    <h1 class="text-center" style="color: white">
+      Your Contribution is Propelling to Keep Our Beaches Clean
+    </h1>
+  </div>
+  <div class="col-12 flex align-items-center justify-content-center">
+    <p-button
+      [style]="{
+        padding: '0.25em 4rem',
+        fontSize: '1.5em',
+        color: 'black',
+        backgroundColor: 'white',
+        borderColor: 'black',
+        fontWeight: 'bold'
+      }"
+    >
+      DONATE
+    </p-button>
+  </div>
+</div>
+
+<div class="card border-noround border-none">
+  <div class="card p-0 border-none m-8">
+    <h4 class="text-xl" style="color: #5b5555">OUR FOCUS</h4>
+    <h1>Maximizing impact in four key areas</h1>
+    <p class="text-2xl">
+      Join us today to restore beach beauty for generations to come…
+    </p>
+    <p class="text-2xl">
+      Your contribution removes existing plastic, stops plastic from reaching
+      the sea through rivers, and safeguards marine life. Take part now for a
+      plastic-free future in our oceans. Make a splash!
+    </p>
+  </div>
+</div>
+
+<div class="grid p-8 bg-white">
+  <div *ngFor="let cleanup of cleanups" class="col">
+    <div
+      class="card flex justify-content-center p-0 border-noround border-none"
+    >
+      <p-card class="border-noround border-none" [style]="styleOBJ">
+        <ng-template pTemplate="header">
+          <img
+            alt="Card"
+            src="../../../assets/layout/images/landing/{{ cleanup.imgUrl }}"
+            style="height: 211px"
+          />
+        </ng-template>
+        <p
+          class="text-xl font-bold text-white text-center"
+          [innerHTML]="getSafeHtml(cleanup.name)"
+        >
+          {{ cleanup.name }}
+        </p>
+      </p-card>
+    </div>
+  </div>
+</div>
+
+<div class="card border-noround border-none" style="background: #1565d8">
+  <h1 class="text-center text-white mt-4">Why we should help</h1>
+  <div class="grid ml-8 mr-8 mt-4 p-0">
+    <div class="col">
+      <img
+        src="../../../assets/layout/images/landing/bottom-pic-1.png"
+        alt=""
+        style="width: 600px; height: 216px"
+      />
+    </div>
+    <div class="col">
+      <img
+        src="../../../assets/layout/images/landing/bottom-pic-2.png"
+        alt=""
+        style="width: 600px; height: 216px"
+      />
+    </div>
+    <p class="text-white text-xl mt-4">
+      inviting them to roll up their sleeves and actively participate in
+      restoring the beauty of our shores. MEPA recognizes the immense potential
+      of community involvement and fosters a sense of ownership by encouraging
+      locals to become ambassadors for the marine environment. Through
+      educational programs, awareness campaigns, and interactive workshops, they
+      inspire a deep sense of responsibility within the community, igniting a
+      spark of passion that fuels long-lasting commitment. MEPA, the spirited
+      advocate for marine life, knows that the power to protect and preserve our
+      precious marine ecosystems lies within the hands of the people. With a
+      rallying cry for collective action, MEPA engages communities through
+      various avenues to join forces in the mission of safeguarding marine life.
+      We organize captivating beach clean-up campaigns that unite individuals
+      from all walks of life,
+    </p>
+    <p class="text-white text-xl mb-8">
+      By harnessing the power of the people, MEPA envisions a future where every
+      individual embraces their role as custodians of the oceans, working hand
+      in hand to ensure the survival and thriving of our marine treasures for
+      generations to come.
+    </p>
+  </div>
+</div>
