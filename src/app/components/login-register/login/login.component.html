@@ -1,0 +1,99 @@
+<div class="container-fluid p-0">
+    <div class="grid">
+        <div
+            class="col-6 flex justify-content-center align-items-center"
+            style="background-color: #1565d8; height: 100vh"
+        >
+            <div class="flex flex-column justify-content-between">
+                <div class="flex justify-content-center align-items-center">
+                    <img
+                        src="../../../../assets/layout/images/logo-main-transparent.png"
+                        alt=""
+                        style="width: 50%"
+                    />
+                </div>
+                <div
+                    class="mt-8 xl:text-xl lg:text-xl md:text-lg text-white sm:text-base"
+                    style="margin-left: 12%; margin-right: 12%"
+                >
+                    <p>
+                        The Marine Pollution Prevention Authority (MPPA) was
+                        established in 1991 inaccordance with the Marine
+                        Pollution Prevention (MPP) Act No 59 of 1981.Initially,
+                        it operated under the Ministry of Port and Shipping
+                        until 1994. However,due to increasing challenges in
+                        marine pollution prevention in Sri Lanka as a resultof
+                        global advancements and economic development activities,
+                        the act was repealed.
+                    </p>
+                    <p>
+                        In its place, the Marine Pollution Prevention Act No. 35
+                        of 2008 was introduced andbecame effective on January 1,
+                        2009. This new legislation took into considerationthe
+                        changing circumstances and aimed to address marine
+                        pollution more effectively.As part of this reform, the
+                        Authority's name was changed to the MarineEnvironment
+                        Protection Authority (MEPA).
+                    </p>
+                    <p>
+                        Presently, the Marine Environment Protection Authority
+                        operates under the purviewof the Minister of Urban
+                        Development & housing. This act has strengthened the
+                        lawenforcement capabilities of the Authority, allowing
+                        them to tackle any acts ofmarine environment pollution
+                        more efficiently and effectively.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 pt-6 bg-white">
+            <div
+                class="flex justify-content-center align-items-center"
+                style="height: 80vh"
+            >
+                <div
+                    class="card flex justify-content-center align-items-center border-none"
+                    style="height: 50vh; width: 40vw"
+                >
+                    <h1 class="mb-8 text-3xl text-bold">
+                        Login to your account
+                    </h1>
+
+                    <div>
+                        <form [formGroup]="loginForm">
+                            <label for="Email" class="mb-1"> Email </label
+                            ><br />
+                            <input
+                                type="email"
+                                pInputText
+                                formControlName="email"
+                                class="mb-3"
+                                style="width: 15vw; border: 2px solid #1565d8"
+                            /><br />
+                            <label for="password" class="mb-1"> Password </label
+                            ><br />
+                            <input
+                                type="password"
+                                pInputText
+                                formControlName="password"
+                                style="width: 15vw; border: 2px solid #1565d8"
+                                class="mb-3"
+                            />
+                            <br />
+                            <p-button
+                                [style]="{
+                                    color: 'white',
+                                    borderColor: '#1565d8',
+                                    borderRadius: '5px',
+                                    backgroundColor: '#1565d8',
+                                }"
+                                label="Login"
+                            >
+                            </p-button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
