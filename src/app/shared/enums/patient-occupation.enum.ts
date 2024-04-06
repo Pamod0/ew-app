@@ -1,0 +1,17 @@
+export enum PatientOccupation {
+    AdministrativeStaff = 1,
+    AssemblyLine,
+    CommercialDriver,
+    Driver,
+    FieldWorker,
+    GeneralLaborer,
+    Kitchen,
+    MaintainenceMechanic,
+    OfficeWorker,
+    Production,
+    QualityControl,
+    Sanitation,
+    SauceDepartment,
+    Utility,
+    Warehouse,
+}

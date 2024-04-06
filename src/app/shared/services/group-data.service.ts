@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
 import { map, catchError, finalize } from "rxjs/operators";
-import { EnvService } from "src/app/env.service";
+import { EnvService } from './../../env.service';
 
 
 @Injectable()

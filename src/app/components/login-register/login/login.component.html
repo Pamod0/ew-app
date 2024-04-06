@@ -42,7 +42,7 @@
                         lawenforcement capabilities of the Authority, allowing
                         them to tackle any acts ofmarine environment pollution
                         more efficiently and effectively.
-                    </p>
+                     </p>
                 </div>
             </div>
         </div>
@@ -64,9 +64,9 @@
                             <label for="Email" class="mb-1"> Email </label
                             ><br />
                             <input
-                                type="email"
+                                type="text"
                                 pInputText
-                                formControlName="email"
+                                formControlName="userId"
                                 class="mb-3"
                                 style="width: 15vw; border: 2px solid #1565d8"
                             /><br />
@@ -88,6 +88,7 @@
                                     backgroundColor: '#1565d8',
                                 }"
                                 label="Login"
+                                (click)="onSubmit()"
                             >
                             </p-button>
                         </form>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment';
 import { BehaviorSubject, Subject } from 'rxjs';
 import * as signalR from '@microsoft/signalr';
 import { CurrentUserService, UIMessageService } from './shared/services'

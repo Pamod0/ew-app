@@ -5,7 +5,7 @@ import { environment } from "../../../environments/environment";
 
 import { Observable, throwError } from "rxjs";
 import { map, catchError, finalize } from "rxjs/operators";
-import { EnvService } from "src/app/env.service";
+import { EnvService } from './../../env.service';
 
 
 @Injectable()

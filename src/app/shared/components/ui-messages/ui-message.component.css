@@ -1,0 +1,10 @@
+/* :host ::ng-deep .custom-toast .p-toast-message {
+    display: flex;
+    width: fit-content;
+}
+
+:host ::ng-deep .p-toast-detail{
+    white-space: pre-line;
+    word-break: break-all;
+    word-break: break-word;
+} */
