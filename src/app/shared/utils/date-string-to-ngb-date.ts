@@ -1,4 +1,4 @@
-import * as moment from 'moment';
+import moment from 'moment';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 
 export class DateStringToNgbDate {
@@ -15,8 +15,7 @@ export class DateStringToNgbDate {
     return {
       year: todayDate.getFullYear(),
       month: todayDate.getMonth() + 1,
-      day: todayDate.getDate()
-    }
-
+      day: todayDate.getDate(),
+    };
   }
 }

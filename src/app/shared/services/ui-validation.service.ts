@@ -4,8 +4,8 @@ import {
   FormGroup,
   FormControl,
 } from '@angular/forms';
-import ticksToDate from 'ticks-to-date';
-import * as moment from 'moment';
+// import ticksToDate from 'ticks-to-date';
+import moment from 'moment';
 
 export class UIValidationService {
   static getValidatorErrorMessage(validatorName: string, validatorValue?: any) {
@@ -182,8 +182,8 @@ export class UIValidationService {
     // RFC 2822 compliant regex
     if (
       control.value.match(
-      //  /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
-      /^\s*(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))\s*$/
+        //  /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+        /^\s*(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))\s*$/
       )
     ) {
       return null;
@@ -200,7 +200,7 @@ export class UIValidationService {
     // RFC 2822 compliant regex
     if (
       control.value.match(
-      /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/
+        /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/
       )
     ) {
       return null;
@@ -327,7 +327,6 @@ export class UIValidationService {
 
     return null;
   }
-
 }
 
 // /^[a-z\d\-_\s]+$/

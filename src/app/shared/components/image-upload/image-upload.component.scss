@@ -1,0 +1,27 @@
+// .image-upload-component {
+//   .img-input-button {
+//     min-width: 120px;
+//     text-align: center;
+//   }
+
+//   .image-cropper {
+//     max-height: 50%;
+//   }
+// }
+// @media (max-width: 500.98px) {
+//   .image-cropper p {
+//     display: none;
+//   }
+// }
+
+// .img-style-cls {
+//   margin-top: 10px;
+//   border-radius: 1px 10px;
+//   margin-bottom: 10px;
+//   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14),
+//     0 7px 10px -5px rgba(55, 94, 151, 0.4);
+// }
+
+.image-cropper {
+  height: 50vh;
+}

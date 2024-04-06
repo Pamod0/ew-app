@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { LocalStorageService } from './local-storage.service';
 import { LocalStorageType, SystemEnvironments } from './../enums';
-import { EnvService } from 'src/app/env.service';
+import { EnvService } from './../../env.service';
 import { map } from 'rxjs/operators';
 
 @Injectable()

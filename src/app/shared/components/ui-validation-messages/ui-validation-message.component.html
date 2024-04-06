@@ -1,0 +1,5 @@
+<!-- <div class="control-message" *ngIf="errorMessage !== null">{{errorMessage}}</div> -->
+
+<div *ngIf="errorMessage !== null">
+    <p-message severity="error" text="{{errorMessage}}"></p-message>
+</div>

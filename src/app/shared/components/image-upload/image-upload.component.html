@@ -1,0 +1,99 @@
+<div class="custom-list-card">
+
+    <div class="custom-data-section">
+
+        <div class="p-col-12 app-p-0">
+
+            <div class="p-grid p-fluid">
+
+                <div class="p-col-fixed app-p-1" style="min-width: 500px; min-height: 400px;">
+
+                    <div class="p-col-12  p-pt-1 p-pb-0">
+                        <div class="p-grid">
+                            <div class="p-col-12  p-pt-0 p-pb-0">
+                                <div class="p-field p-grid">
+                                    <div class="p-col-12">
+
+                                        <p class="app-mt-10" style="text-align: center;"><strong>The image should be
+                                                larger than
+                                                200px by 200px.</strong></p>
+
+                                        <input type="file" class="app-mt-10" (change)="fileChangeEvent($event)" />
+
+                                        <!-- <p-fileUpload mode="basic" chooseLabel="Choose" accept="image/*"
+                                            maxFileSize="1000000" (onSelect)="fileChangeEvent($event)"></p-fileUpload> -->
+
+                                        <div *ngIf="imgErrorMessage" class="bg-danger text-white p2">
+                                            {{imgErrorMessage}}
+                                        </div>
+                                    </div>
+                                    <!-- <div class="p-col-3" class="text-center p-pl-1 p-pt-1" *ngIf="croppedImage">
+                                        <img [src]="croppedImage" style="width: 100px;" />
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-col-12  p-pt-1 p-pb-0" *ngIf="croppedImage">
+                        <div class="p-grid">
+                            <div class="p-col-12  p-pt-0 p-pb-0">
+                                <div class="p-field p-grid" class="text-center app-pb-1" style="">
+                                    <h4>Crop Image</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-col-12  p-pt-1 p-pb-0" *ngIf="imageChangedEvent">
+                        <div class="p-grid">
+                            <div class="p-col-12  p-pt-0 p-pb-0">
+                                <div class="p-field p-grid">
+                                    <div class="p-col-9">
+                                        <div #cropContainer style="width: 300px; height: 300px;">
+                                            <image-cropper [imageChangedEvent]="imageChangedEvent"
+                                                [maintainAspectRatio]="maintainAspectRatio" [aspectRatio]="aspectRatio"
+                                                 format="png" [transform]="transform"
+                                                (imageCropped)="imageCropped($event)"
+                                                (imageLoaded)="imageLoaded($event)"
+                                                (cropperReady)="cropperReady($event)"
+                                                (loadImageFailed)="loadImageFailed()">
+                                            </image-cropper>
+                                        </div>
+                                    </div>
+                                    <div class="p-col-3" *ngIf="croppedImage">
+                                        <div class="p-pt-2">
+                                            <button (click)="zoomOut()" class="p-pr-1 btn btn-success zoom-btn"
+                                                style="width: 100%;">Zoom -</button>
+                                        </div>
+                                        <div class="p-pt-2">
+                                            <button (click)="zoomIn()" class="p-pr-1 btn btn-success"
+                                                style="width: 100%;">Zoom +</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-col-12  p-pt-1 p-pb-0" *ngIf="croppedImage">
+                        <div class="p-grid">
+                            <div class="p-col-12  p-pt-0 p-pb-0">
+                                <div class="p-field p-grid">
+                                    <button type="button" pButton pRipple icon="pi pi-check"
+                                        class="app-mt-3 p-ml-4 app-mb-3" label="Crop & Apply" style="width: 100%;" (click)="onCropImage()"
+                                        pTooltip="Crop & Apply"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

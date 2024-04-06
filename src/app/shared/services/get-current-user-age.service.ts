@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
-import { EnvService } from "src/app/env.service";
+import { EnvService } from './../../env.service';
 
 @Injectable()
 export class GetCurrentUserAgeService {
