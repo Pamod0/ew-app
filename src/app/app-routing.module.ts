@@ -4,6 +4,7 @@ import { LandingPageComponent } from './modules/public/landing-page/landing-page
 import { LoginComponent } from './components/login-register/login/login.component';
 import { AccountTypeComponent } from './components/login-register/account-type/account-type.component';
 import { DefaultLayoutComponent } from './containers/default-layout/default-layout.component';
+import { AppMainComponent } from './containers/module-layout/app.main.component';
 
 const routes: Routes = [
     {
@@ -61,6 +62,10 @@ const routes: Routes = [
     {
         path: 'c',
         component: LoginComponent
+    },
+    {
+        path: 'd',
+        component: AppMainComponent
     }
 ];
 

@@ -1,0 +1,28 @@
+<!-- <ui-message [style]="{ 'z-index': '10000 !important', 'position': 'absolute' }"></ui-message> -->
+<div class="layout-wrapper" 
+        [ngClass]="{
+        'layout-wrapper-menu-active':sidebarActive,
+        'layout-overlay-menu':overlay, 
+        'p-input-filled': app.inputStyle === 'filled', 
+        'p-ripple-disabled': !app.ripple}">
+
+    <app-topbar></app-topbar>
+
+    <app-sidebar></app-sidebar>
+
+    <div class="layout-content">
+        
+        <div class="layout-main">
+
+            <!-- <ui-message [style]="{ 'z-index': '10000 !important', 'position': 'absolute' }"></ui-message> -->
+            <router-outlet style="margin-top: 25px !important;" name="modal"></router-outlet>  
+            <router-outlet></router-outlet>  
+
+        </div>
+
+        <!-- <app-footer></app-footer> -->
+    </div>
+
+    <!-- <app-config></app-config> -->
+
+</div>
