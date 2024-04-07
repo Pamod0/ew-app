@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
     selector: 'body',
@@ -9,7 +10,12 @@ import { Router, NavigationEnd } from '@angular/router';
 export class AppComponent implements OnInit {
     title = 'mepa';
 
-    constructor(private router: Router) {}
+    layoutMode = 'static';
+    theme = 'green';
+    inputStyle = 'outlined';
+    ripple: boolean;
+
+    constructor(private router: Router, private primengConfig: PrimeNGConfig) {}
 
     ngOnInit() {
         this.router.events.subscribe((evt) => {
@@ -18,5 +24,8 @@ export class AppComponent implements OnInit {
             }
             window.scrollTo(0, 0);
         });
+
+        this.primengConfig.ripple = true;
+        this.ripple = true;
     }
 }
