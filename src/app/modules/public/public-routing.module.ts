@@ -9,7 +9,7 @@ const _routes: Routes = [
         component: PublicComponent,
         data: {
             title: 'Public'
-        }
+        },
     }
 ];
 

@@ -1,0 +1,106 @@
+<ngx-spinner name="modifierViewSpinner"
+             bdColor="rgba(51,51,51,0.8)"
+             size="medium"
+             color="#fff"
+             type="ball-scale-multiple"
+             [fullScreen]="false">
+</ngx-spinner>
+<div class="custom-card p-shadow-3">
+
+  <div class="custom-toolbar-card">
+
+    <p-toolbar styleClass="toolbar-view-email-template">
+      <div class="p-toolbar-group-left">
+        <span style="padding-left: 0.7rem; font-weight: 500;">{{ _pageTitle }} {{ _pageSubTitle}}</span>
+      </div>
+
+      <div class="p-toolbar-group-right">
+        <button pButton pRipple type="button" icon="fas fa-lg fa-times"
+          class="p-button-danger app-mt-3 app-mb-3 app-ml-5 app-mr-5" (click)="close()"></button>
+      </div>
+    </p-toolbar>
+  </div>
+  <form [formGroup]="_form">
+
+    <div class="custom-data-section" style="background-color: #ffffff;">
+  
+      <div class="p-col-12 app-p-0">
+  
+        <div class="p-grid p-fluid">
+  
+          <div class="p-col-fixed app-p-1">
+  
+            <div class="custom-data-section app-p-1" style="width: 600px; border: 1px solid #e0e0e0;">
+  
+              <div class="custom-data-sub-section app-mt-1 app-mb-1">
+  
+                <div class="p-col-12 app-pt-5 app-pb-0">
+                  <div class="p-grid">
+                    <div class="p-col-5 p-pt-0 p-pb-0">
+                      <div class="p-field p-grid">
+                        <label 
+                               style="width: 100px"><strong>Status<span class="required-star">*</span></strong></label>
+                        <div class="p-col">
+                          <p-dropdown [options]="_recordStatus"
+                                                        formControlName="recordStatusId" optionLabel="label"
+                                                        optionValue="value" #recordStatusId></p-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-col-12 app-pt-1 app-pb-0">
+                  <div class="p-grid">
+                    <div class="p-col-12 p-pt-0 p-pb-0">
+                      <div class="p-field p-grid">
+                        <label style="width: 100px"><strong>Name<span class="required-star">*</span></strong></label>
+                        <div class="p-col">
+                          <input type="text"
+                                 pInputText
+                                 formControlName="name" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-col-12 app-pt-1 app-pb-3">
+                  <div class="p-grid">
+                    <div class="p-col-12 p-pt-0 p-pb-0">
+                      <div class="p-field p-grid">
+                        <label style="width: 100px"><strong>Body
+                            <span class="required-star">*</span></strong></label>
+                        <div class="p-col">
+
+                          <p-editor #editor formControlName="body" 
+                          [style]="{'height':'320px'}"
+                          readonly="true">
+                            <ng-template pTemplate="header">
+                        
+                              
+                        
+                            </ng-template>
+                          </p-editor>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </form>
+
+</div>
+

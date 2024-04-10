@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { NewCases } from './case.model';
 
 @Component({
   selector: 'app-administration-dashboard',

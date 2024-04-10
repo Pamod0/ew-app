@@ -1,1 +1,96 @@
-<p>administration-dashboard works!</p>
+
+<p-toolbar class="mr-1" style="background: white;">
+    <div class="p-toolbar-group-start">
+        <div >    
+            <!-- <p-tabMenu [model]="items" [activeItem]="activeItem" (activeItemChange)="onActiveItemChange($event)"></p-tabMenu> -->
+        </div>
+    </div>
+    <div class="p-toolbar-group-center">
+        <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input pInputText placeholder="Search" />
+        </span>
+    </div>
+    <div class="p-toolbar-group-end">
+    </div>
+</p-toolbar>
+<p-card>
+<div class="table-containe col-12">
+    <p-table #dt 
+        value="newkases" 
+        columnResizeMode="expand" 
+        [tableStyle]="{ 'min-width': '30rem','border-color': 'blue'}"
+        dataKey="id"
+        [rowHover]="true" 
+        [rows]="10"
+        [showCurrentPageReport]="true" 
+        [rowsPerPageOptions]="[10, 25, 50]" 
+        [paginator]="true"   
+        [totalRecords]="7"
+        [lazy]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+
+        <!-- <ng-template pTemplate="caption">
+            <div class="header-content">
+                <h4 style="color: black;font-weight:bold; padding-top: 10px;">Recent Kases</h4>
+            </div>
+            <div class="flex justify-between items-center">
+                <div class="flex items-center w-full">
+                    
+                    <div class="button-container">
+                        <button pButton pRipple label="New" class="mr-2" icon="pi pi-plus"
+                            (click)="showAddNewForm()"></button>
+                    </div>
+                </div>
+            </div>
+        </ng-template> -->
+
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Number</th>
+                <th>Case Name</th>
+                <th></th>
+                <th>Type</th>
+                <th>Next Event</th>
+                <th>Status</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-newkases>
+            <tr><td>
+                <div class="flex">
+                    <button pButton pRipple icon="pi pi-plus" pTooltip="New Note" tooltipPosition="top"class="p-button-rounded p-button-primary mr-2"></button>
+                    <button pButton pRipple icon="pi pi-align-justify" pTooltip="Review Notes" tooltipPosition="top"class="p-button-rounded p-button-success mr-2"></button>
+                    <button pButton pRipple icon="pi pi-pencil" pTooltip="New Message" tooltipPosition="top"class="p-button-rounded p-button-info mr-2"></button>
+                    <button pButton pRipple icon="pi pi-upload" pTooltip="Manage Documents" tooltipPosition="top"class="p-button-rounded p-button-secondary mr-2"></button>
+                    <button pButton pRipple icon="pi pi-reddit" pTooltip="Review Activity" tooltipPosition="top"class="p-button-rounded p-button-warning mr-2"></button>
+                    <button pButton pRipple icon="pi pi-calendar" pTooltip="View Kalendar" tooltipPosition="top"class="p-button-rounded p-button-help mr-2"></button>
+                    <button pButton pRipple icon="pi pi-inbox" pTooltip="Add Task" tooltipPosition="top"class="p-button-rounded p-button-warning mr-2"></button>
+                    <button pButton pRipple icon="pi pi-phone" pTooltip="Add Phone Message" tooltipPosition="top"class="p-button-rounded p-button-success mr-2"></button>
+                    <button pButton pRipple icon="pi pi-file-o" pTooltip="New Letter" tooltipPosition="top"class="p-button-rounded p-button-info mr-2"></button>
+                    <button pButton pRipple icon="pi pi-dollar" pTooltip="Review Settlement Information" tooltipPosition="top"class="p-button-rounded p-button-help mr-2"></button>
+                    <button pButton pRipple icon="pi pi-pencil" pTooltip="New Message" tooltipPosition="top"class="p-button-rounded p-button-info mr-2"
+                    (click)="editKase(newkases.id)"
+                    ></button>
+                </div>
+            </td>
+            <td>{{ newkases.kaseNumber }}</td>
+            <td>{{ newkases.doi }}</td>
+            <td>{{ newkases.kaseType }}</td>
+            <td>{{ newkases.adjNumber }}</td>
+            <td>{{ newkases.venue }}</td>
+            <td>{{ newkases.kaseStatus }}</td>
+            <td>{{ newkases.formattedKaseDate }}</td>
+            <td>{{ newkases.ssn }}</td>
+            <td>{{ newkases.dob }}</td>
+            <td>{{ newkases.kaseLanguage }}</td>
+            <td>{{ newkases.occupation }}</td>
+            <td>{{ newkases.kaseAttorney }}</td>
+            <td>{{ newkases.kaseSupervisorAttorney }}</td>
+            <td>{{ newkases.worker }}</td>
+            <td><button pButton pRipple icon="pi pi-trash" pTooltip="Delete" tooltipPosition="top"class="p-button-rounded p-button-danger mr-2"
+                (click)="deleteSelectedKase(newkases.id)"></button></td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+</p-card>

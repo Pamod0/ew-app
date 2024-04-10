@@ -1,0 +1,20 @@
+<div class="grid">
+    <div class="col-6 mb-3"><i class="pi pi-envelope" style="color:#d330ff; font-size: 30px;"></i> <span
+            class="cardHdng">Messages</span></div>
+    <div class="col-6 mb-3" style="text-align: right;">
+        <button pButton pRipple label="Send a Message" icon="pi pi-plus" class="btnCard" style="background: #d330ff"></button>
+    </div>
+    <div class="col-12" style="margin-top:20px;">
+        <p-dataView #dv [value]="messageLists" [paginator]="true" [rows]="10" filterBy="name" layout="grid">
+            <ng-template let-messageLists pTemplate="gridItem">
+                <div class="col-12 md-4">
+                    <div class="product-grid-item card" style="padding: 10px;">
+                        <div class="product-grid-item-top">
+                            <div>{{ messageLists.message }}</div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-dataView>
+    </div>
+</div>

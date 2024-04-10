@@ -1,0 +1,264 @@
+<p-confirmDialog key="createClinetConfirmDialog" header="Confirmation" icon="pi pi-exclamation-triangle"
+  [style]="{ 'z-index': '100000 !important'}" styleClass="custom-confirm-dialog" [closeOnEscape]="false"
+  [closable]="false">
+</p-confirmDialog>
+
+<div class="custom-card p-shadow-3">
+
+  <div class="custom-toolbar-card">
+
+    <p-toolbar styleClass="toolbar-new-user-create">
+
+      <div class="p-toolbar-group-left">
+        <span style="color:#000; padding-left: 0.5rem; font-weight: 500;">CREATE User</span>
+      </div>
+
+      <div class="p-toolbar-group-right">
+        <button type="button" pButton pRipple type="button" icon="fas fa-save" label="Save"
+          class="app-mt-3 p-ml-4 app-mb-1" (click)="save()"></button>
+
+        <button type="button" pButton pRipple type="button" icon="fas fa-times"
+          class="p-button-danger app-mt-3 app-ml-5 app-mb-1 app-mr-3" (click)="close()"></button>
+      </div>
+
+    </p-toolbar>
+
+  </div>
+
+
+
+  <form [formGroup]="_form">
+
+    <div class="p-col-12 app-p-0">
+
+      <div class="p-grid p-fluid app-p-0">
+
+        <div class="p-col-fixed app-p-0" style="width: 450px;">
+
+          <div class="custom-data-section" style="background-color: #ffffff;">
+
+            <div class="p-col-12 app-pt-10 app-pb-0">
+
+              <div class="p-grid">
+                <div class="p-col-12 p-pt-0 p-pb-0">
+                  <div class="p-field p-grid">
+                    <label class="" style="width: 100px"><strong>User<span
+                          class="required-star">*</span></strong></label>
+                    <div class="p-col">
+
+                      <input type="text" pInputText EmptyToNull autocomplete="off" autocomplete="nope"
+                        formControlName="name" #name />
+                      <ui-validation-message [control]="_form.get('name')" *ngIf="_formSubmitAttempt == true">
+                      </ui-validation-message>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="p-col-12 app-pt-5 app-pb-0">
+
+              <div class="p-grid">
+                <div class="p-col-12 p-pt-0 p-pb-0">
+                  <div class="p-field p-grid">
+                    <label class="" style="width: 100px"><strong>Initials<span
+                          class="required-star">*</span></strong></label>
+                    <div class="p-col">
+
+                      <input type="text" pInputText EmptyToNull autocomplete="off" autocomplete="nope"
+                        formControlName="initials" #initials />
+                      <ui-validation-message [control]="_form.get('initials')" *ngIf="_formSubmitAttempt == true">
+                      </ui-validation-message>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="p-col-12 app-pt-5 app-pb-0">
+
+              <div class="p-grid">
+                <div class="p-col-12 p-pt-0 p-pb-0">
+                  <div class="p-field p-grid">
+                    <label class="" style="width: 100px"><strong>First Name<span
+                          class="required-star">*</span></strong></label>
+                    <div class="p-col">
+
+                      <input type="text" pInputText EmptyToNull autocomplete="off" autocomplete="nope"
+                        formControlName="firstName" #firstName />
+                      <ui-validation-message [control]="_form.get('firstName')" *ngIf="_formSubmitAttempt == true">
+                      </ui-validation-message>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="p-col-12 app-pt-5 app-pb-0">
+
+              <div class="p-grid">
+                <div class="p-col-12 p-pt-0 p-pb-0">
+                  <div class="p-field p-grid">
+                    <label class="" style="width: 100px"><strong>Last Name<span
+                          class="required-star">*</span></strong></label>
+                    <div class="p-col">
+
+                      <input type="text" pInputText EmptyToNull autocomplete="off" autocomplete="nope"
+                        formControlName="lastName" #lastName />
+                      <ui-validation-message [control]="_form.get('lastName')" *ngIf="_formSubmitAttempt == true">
+                      </ui-validation-message>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="p-col-12 app-pt-5 app-pb-0">
+
+              <div class="p-grid">
+                <div class="p-col-12 p-pt-0 p-pb-0">
+                  <div class="p-field p-grid">
+                    <label class="" style="width: 100px"><strong>Title<span
+                          class="required-star">*</span></strong></label>
+                    <div class="p-col">
+
+                      <input type="text" pInputText EmptyToNull autocomplete="off" autocomplete="nope"
+                        formControlName="title" #title />
+                      <ui-validation-message [control]="_form.get('title')" *ngIf="_formSubmitAttempt == true">
+                      </ui-validation-message>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="p-col-12 app-pt-5 app-pb-0">
+
+              <div class="p-grid">
+                <div class="p-col-12 p-pt-0 p-pb-0">
+                  <div class="p-field p-grid">
+                    <label class="" style="width: 100px"><strong>Email<span
+                          class="required-star">*</span></strong></label>
+                    <div class="p-col">
+
+                      <input type="text" pInputText EmptyToNull autocomplete="off" autocomplete="nope"
+                        formControlName="email" #email />
+                      <ui-validation-message [control]="_form.get('email')" *ngIf="_formSubmitAttempt == true">
+                      </ui-validation-message>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+            <div class="p-col-12 app-pt-5 app-pb-0">
+
+              <div class="p-grid">
+                <div class="p-col-12 p-pt-0 p-pb-0">
+                  <div class="p-field p-grid">
+                    <label class="" style="width: 100px"><strong>Phone<span
+                          class="required-star">*</span></strong></label>
+                    <div class="p-col">
+
+                      <p-inputMask mask="(999) 999-9999" formControlName="phone" placeholder="(999) 999-9999"
+                        #phone></p-inputMask>
+                      <ui-validation-message [control]="_form.get('phone')" *ngIf="_formSubmitAttempt == true">
+                      </ui-validation-message>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="p-col-12 app-pt-5 app-pb-10">
+
+              <div class="p-grid">
+                <div class="p-col-12 p-pt-0 p-pb-0">
+                  <div class="p-field p-grid">
+                    <label class="" style="width: 100px"><strong>Login Id</strong></label>
+                    <div class="p-col">
+
+                      <input type="text" pInputText EmptyToNull autocomplete="off" autocomplete="nope"
+                        formControlName="loginId" #loginId />
+                      <ui-validation-message [control]="_form.get('loginId')" *ngIf="_formSubmitAttempt == true">
+                      </ui-validation-message>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="p-col-12 app-pt-5 app-pb-0">
+
+              <div class="p-grid">
+                <div class="p-col-12 p-pt-0 p-pb-0">
+                  <div class="p-field p-grid">
+                    <label class="" style="width: 100px"><strong>Password<span
+                          class="required-star">*</span></strong></label>
+                    <div class="p-col">
+
+                      <input type="text" pInputText EmptyToNull autocomplete="off" autocomplete="nope"
+                        formControlName="password" #password />
+                      <ui-validation-message [control]="_form.get('password')" *ngIf="_formSubmitAttempt == true">
+                      </ui-validation-message>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </form>
+
+</div>

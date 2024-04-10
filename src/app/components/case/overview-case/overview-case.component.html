@@ -1,0 +1,589 @@
+<div class="card">
+    <p-breadcrumb class="max-w-full" [model]="breadcrumbItems"></p-breadcrumb>
+    <div class="grid">
+        <div class="col" style="width: 40%;">
+            <h4 style="font-size:25px; font-weight: 700; line-height: 35px; color: hwb(0 0% 100%); text-transform: uppercase;">
+                {{newCase.applicantFirstName}}, {{newCase.applicantLastName}}; {{getAttorneyResLabel()}},  {{formattedKaseDate}} ({{newCase.sequensId}})</h4>
+        </div>
+        <div class="col" style="width: 8%; border-right: 2px solid #d9d9d9;">
+            <button pButton [ngClass]="getButtonClass()">
+                {{ getCaseStatusLabel() }}
+              </button>
+        </div>
+        <div class="col" style="width: 52%;">
+            <div class="grid" style="padding-left: 20px; margin-bottom: 0;">
+                <div class="col" style="width: 60%;">
+                    <h4 style="font-weight: 600; font-size: 18px; color: #010101;">Case Progress</h4>
+                </div>
+                <div class="col" style="width:40%; display: flex; justify-content: end; gap: 20px;">
+                    <div class="grid">
+                        <div class="col" style="border-right: 2px solid #d9d9d9;">
+                            <h4 style="font-weight: 600; font-size: 18px; color: #010101;">{{ formatTotalCompletionTime() }}</h4>
+                        </div>
+                        <div class="col">
+                            <h4 style="font-weight: 600; font-size: 18px; color: #010101;">{{totalComplition}}% Completed</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="grid">
+                      <div class="col-3 prBar">
+                        <p-progressBar mode="determinate" [value]="progressBarValues[0]"></p-progressBar>
+                      </div>
+                      <div class="col-3 prBar">
+                        <p-progressBar mode="determinate" [value]="progressBarValues[1]"></p-progressBar>
+                      </div>
+                      <div class="col-3 prBar">
+                        <p-progressBar mode="determinate" [value]="progressBarValues[2]"></p-progressBar>
+                      </div>
+                      <div class="col-3 prBar">
+                        <p-progressBar mode="determinate" [value]="progressBarValues[3]"></p-progressBar>
+                    </div>
+                </div>
+                <div class="col-12 p-bar" style="display: flex; justify-content: start; gap: 20px;">
+                    <p><span><p-badge></p-badge></span>Assessment & Development </p>
+                    <p><span><p-badge></p-badge></span>Discovery & Depositions </p>
+                    <p><span><p-badge></p-badge></span>Pre-Trial </p>
+                    <p><span><p-badge></p-badge></span>Trial</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-tabView styleClass="tabview-custom">
+    <p-tabPanel header="Case File">
+        <ng-template pTemplate="header">
+            <i class="pi pi-file"></i>
+            <span style="margin-left: 5px;">Case File</span>
+        </ng-template>
+        <div class="card" style="padding: 25px; margin-top: 15px;">
+            <h4 style="font-size:18px; font-weight: 700; color: #111111; padding-left:20px;">Case Agenda</h4>
+            <div class="grid caseAgenda">
+                <div class="col" style="width:3%;"><i class="pi pi-bookmark"
+                        style="font-size: 1.5rem; color: #30BFFF;"></i></div>
+                <div class="col" style="width:15%;">04th July 2004 | 09.00 AM</div>
+                <div class="col">3rd Court Day: Duenas, Adrian; Bernal, Jorge vs McGuirre, Glenda Ileen DOL 11/01/2023
+                    (3166)</div>
+            </div>
+            <div class="grid caseAgenda">
+                <div class="col" style="width:3%;"><i class="pi pi-bookmark-fill"
+                        style="font-size: 1.5rem; color: #2f5cfa;"></i></div>
+                <div class="col" style="width:15%;">08th July 2024 | 1:00 AM</div>
+                <div class="col">Collect Medical document from client</div>
+            </div>
+            <div class="grid caseAgenda">
+                <div class="col" style="width:3%;"><i class="pi pi-bookmark-fill"
+                        style="font-size: 1.5rem; color: #2f5cfa;"></i></div>
+                <div class="col" style="width:15%;">25th July 2024 | 1:00 AM</div>
+                <div class="col">Meeting with Mr. Thomas via Zoom</div>
+            </div>
+            <div class="grid caseAgenda">
+                <div class="col" style="width:3%;"><i class="pi pi-bookmark"
+                        style="font-size: 1.5rem; color: #30BFFF;"></i></div>
+                <div class="col" style="width:15%;">31th July 2004 | 09.00 AM</div>
+                <div class="col">3rd Court Day: Duenas, Adrian; Bernal, Jorge vs McGuirre, Glenda Ileen DOL 11/01/2023
+                    (3166)</div>
+            </div>
+            <div class="grid caseAgenda">
+                <div class="col" style="width:3%;"><i class="pi pi-bookmark-fill"
+                        style="font-size: 1.5rem; color: #2f5cfa;"></i></div>
+                <div class="col" style="width:15%;">31th July 2024 | 1:00 AM</div>
+                <div class="col">Collect case document from court</div>
+            </div>
+        </div>
+        <div class="card" style="padding: 20px;">
+            <div class="grid" style="padding: 20px 20px 0 20px;">
+                <div class="col-11">
+                    <h4 style="font-size:20px; font-weight: 700; color: #313131;">Duenas, Adrian; Bernal, Jorge vs
+                        McGuirre, Glenda Ileen DOL 11/01/2023 (3166) <span><button pButton pRipple label="Open"
+                                class="btn-open"></button></span></h4>
+                </div>
+                <div class="col-1" style="display: flex; justify-content:flex-end;"><button pButton pRipple label="Edit"
+                        class="btn-edit" icon="pi pi-check-square"></button></div>
+            </div>
+            <!-- Status section -->
+            <div class="grid" style="padding: 20px 20px 0 20px;">
+                <div class="col-3 brCol">
+                    <!-- <p style="color: #868686; font-weight: 400; font-size:16px;"><i class="pi pi-user"></i> Type <span
+                            style="margin-left: 50px; font-size:16px; font-weight: 400;color: #313131;">Workers’
+                            Compensation</span></p>
+                    <p style="color: #868686; font-weight: 400; font-size:16px;"><i class="pi pi-calendar"></i> Status
+                        <span style="margin-left: 50px; font-size:16px; font-weight: 400;"><button pButton pRipple
+                                label="Open" class="btn-open"></button></span>
+                    </p>
+                    <p style="color: #868686; font-weight: 400; font-size:16px;"><i class="pi pi-folder"></i> File No
+                        <span style="margin-left: 50px; font-size:16px; font-weight: 400;color: #313131;">3166</span>
+                    </p> -->
+                    <div class="grid">
+                        <div class="col" style="width: 30%; color: #868686; font-weight: 400; font-size:16px;"><i
+                                class="pi pi-user"></i> Type</div>
+                        <div class="col" style=" width:70%; font-size:16px; font-weight: 400;color: #313131;">Workers’
+                            Compensation</div>
+                    </div>
+                    <div class="grid" style="display: flex; margin-top: 10px;">
+                        <div class="col" style="width: 30%; color: #868686; font-weight: 400; font-size:16px;"><i
+                                class="pi pi-calendar"></i> Status</div>
+                        <div class="col" style=" width:70%; font-size: 16px; font-weight: 400;color: #313131;"><button
+                                pButton pRipple label="Open" class="btn-open"></button></div>
+                    </div>
+                    <div class="grid" style="display: flex; margin-top: 10px;">
+                        <div class="col" style="width: 30%; color: #868686; font-weight: 400; font-size:16px;"><i
+                                class="pi pi-folder"></i> File No</div>
+                        <div class="col" style=" width:70%; font-size: 16px; font-weight: 400;color: #313131;">{{newCase.fileNumber}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-7 brCol" style="padding-left: 50px; padding-right: 50px;">
+                    <div class="grid">
+                        <div class="col" style="width: 18%; color: #868686; font-weight: 400; font-size:16px;"><i
+                                class="pi pi-building"></i> Office</div>
+                        <div class="col"><span style="font-size:16px; font-weight: 400;color: #313131;">Main
+                                Office</span></div>
+                    </div>
+                    <div class="grid" style="display: flex; margin-top: 10px;">
+                        <div class="col" style="width: 18%; color: #868686; font-weight: 400; font-size:16px;"><i
+                                class="pi pi-map-marker"></i> Venue</div>
+                        <div class="col" style=" width:81%; font-size: 16px; font-weight: 400;color: #313131;">Riverside
+                            - Workers' Compensation Appeals Board, based upon the County of Principal Place of Business
+                            of Applicant's Attorney</div>
+                    </div>
+                </div>
+                <div class="col-2" style="padding-left: 40px;">
+                    <!-- <p style="color: #868686; font-weight: 400; font-size:16px;"><i class="pi pi-user"></i> Last entry <span
+                            style="margin-left: 20px; font-size:16px; font-weight: 400;color: #313131;">10/30/2024</span></p>
+                    <p style="color: #868686; font-weight: 400; font-size:16px;"><i class="pi pi-calendar"></i> Entered
+                        <span style="margin-left: 20px; font-size:16px; font-weight: 400;">11/03/2024</span>
+                    </p>
+                    <p style="color: #868686; font-weight: 400; font-size:16px;"><i class="pi pi-folder"></i> Opened
+                        <span style="margin-left: 20px; font-size:16px; font-weight: 400;color: #313131;">11/25/2024</span>
+                    </p> -->
+
+                    <div class="grid">
+                        <div class="col" style="width: 50%; color: #868686; font-weight: 400; font-size:16px;"><i
+                                class="pi pi-user"></i> Last entry</div>
+                        <div class="col" style=" width:50%; font-size:16px; font-weight: 400;color: #313131;">{{newCase.updatedDateTime | date : "MM-dd-yyy"}}
+                        </div>
+                    </div>
+                    <div class="grid" style="display: flex; margin-top: 10px;">
+                        <div class="col" style="width: 50%; color: #868686; font-weight: 400; font-size:16px;"><i
+                                class="pi pi-file-import"></i> Entered</div>
+                        <div class="col" style=" width:50%; font-size: 16px; font-weight: 400;color: #313131;">
+                            11/03/2024</div>
+                    </div>
+                    <div class="grid" style="display: flex; margin-top: 10px;">
+                        <div class="col" style="width: 50%; color: #868686; font-weight: 400; font-size:16px;"><i
+                                class="pi pi-external-link"></i> Opened</div>
+                        <div class="col" style=" width:50%; font-size: 16px; font-weight: 400;color: #313131;">
+                            {{newCase.createdDateTime  | date : "MM-dd-yyy"}}</div>
+                    </div>
+                </div>
+            </div>
+            <hr style="border-width: 1px; margin-top: 20px;">
+            <!-- comment section -->
+            <div class="grid" style="padding: 20px;">
+                <div class="col-12">
+                    <h4 style="font-size: 18px; font-weight: 700; color: #313131;" class="mb-5">Comments</h4>
+                    <div class="grid mb-4">
+                        <div class="col" style="width: 10%;"><p-avatar
+                                image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+                                styleClass="mr-2" size="xlarge" shape="circle"></p-avatar></div>
+                        <div class="col" style="width:90%; display: flex; flex-direction: column;">
+                            <h6 style="font-size: 16px; font-weight: 500; color: #868686;">Malith Weeramuni
+                                <span>2023/11/24</span>
+                            </h6>
+                            <p style="font-size: 16px; font-weight: 500; color: #313131;">Lorem ipsum dolor sit amet
+                                consectetur, adipisicing elit. Modi, odit debitis. Error amet impedit inventore esse?
+                                Veritatis, omnis nulla! Et, laborum sit aperiam aliquam consequuntur adipisci eligendi
+                                hic ad nihil. </p>
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div class="col" style="width: 10%;"><p-avatar
+                                image="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png"
+                                styleClass="mr-2" size="xlarge" shape="circle"></p-avatar></div>
+                        <div class="col" style="width:90%; display: flex; flex-direction: column;">
+                            <h6 style="font-size: 16px; font-weight: 500; color: #868686;">Lakindu Oshada
+                                <span>2023/11/24</span>
+                            </h6>
+                            <p style="font-size: 16px; font-weight: 500; color: #313131;">Lorem ipsum dolor sit amet
+                                consectetur, adipisicing elit. Modi, odit debitis. Error amet impedit inventore esse?
+                                Veritatis, omnis nulla! Et, laborum sit aperiam aliquam consequuntur adipisci eligendi
+                                hic ad nihil.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr style="border-width: 1px; margin-top: 20px;">
+            <div class="grid" style="padding: 20px;">
+                <div class="col-9">
+                    <h4 style="font-size:18px; font-weight: 700; color: #313131;">Special Handling Comments</h4>
+                </div>
+                <div class="col-3" style="display: flex; justify-content:flex-end;"><button pButton pRipple
+                        label="Add Comment" class="btn-edit" icon="pi pi-check-square"></button>
+                </div>
+
+                <div class="col-12">
+                    <div class="grid mb-4">
+                        <div class="col" style="width: 10%;"><p-avatar
+                                image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+                                styleClass="mr-2" size="xlarge" shape="circle"></p-avatar></div>
+                        <div class="col" style="width:90%; display: flex; flex-direction: column;">
+                            <h6 style="font-size: 16px; font-weight: 500; color: #868686;">Malith Weeramuni
+                                <span>2023/11/24</span>
+                            </h6>
+                            <p style="font-size: 16px; font-weight: 500; color: #313131;">Lorem ipsum dolor sit amet
+                                consectetur, adipisicing elit. Modi, odit debitis. Error amet impedit inventore esse?
+                                Veritatis, omnis nulla! Et, laborum sit aperiam aliquam consequuntur adipisci eligendi
+                                hic ad nihil.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr style="border-width: 1px; margin-top: 20px;">
+            <div class="grid">
+                <div class="col" style="width:50%; border-right: 2px solid #868686;">
+                    <div class="grid" style="padding:20px;">
+                        <div class="col-9">
+                            <h4 style="font-size:18px; font-weight: 700; color: #313131;">Comments</h4>
+                        </div>
+                        <div class="col-3" style="display: flex; justify-content:flex-end;"><button pButton pRipple
+                                label="Add Comment" class="btn-edit" icon="pi pi-check-square"></button>
+                        </div>
+                        <div class="col-12">
+                            <div class="grid mb-4">
+                                <div class="col" style="width: 13%;"><p-avatar
+                                        image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+                                        styleClass="mr-2" size="large" shape="circle"></p-avatar></div>
+                                <div class="col" style="width:87%; display: flex; flex-direction: column;">
+                                    <h6 style="font-size: 16px; font-weight: 500; color: #868686;">Malith Weeramuni
+                                        <span>2023/11/24</span>
+                                    </h6>
+                                    <p style="font-size: 16px; font-weight: 500; color: #313131;">Lorem ipsum dolor sit
+                                        amet
+                                        consectetur, adipisicing elit. Modi, odit debitis. Error amet impedit inventore
+                                        esse?
+                                        Veritatis, omnis nulla! Et, laborum sit aperiam aliquam consequuntur adipisci
+                                        eligendi
+                                        hic ad nihil.</p>
+                                </div>
+                            </div>
+                            <div class="grid">
+                                <div class="col" style="width: 13%;"><p-avatar
+                                        image="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png"
+                                        styleClass="mr-2" size="large" shape="circle"></p-avatar></div>
+                                <div class="col" style="width:87%; display: flex; flex-direction: column;">
+                                    <h6 style="font-size: 16px; font-weight: 500; color: #868686;">Lakindu Oshada
+                                        <span>2023/11/24</span>
+                                    </h6>
+                                    <p style="font-size: 16px; font-weight: 500; color: #313131;">Lorem ipsum dolor sit
+                                        amet
+                                        consectetur, adipisicing elit. Modi, odit debitis. Error amet impedit inventore
+                                        esse?
+                                        Veritatis, omnis nulla! Et, laborum sit aperiam aliquam consequuntur adipisci
+                                        eligendi
+                                        hic ad nihil.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="width: 50%;">
+                    <div class="grid" style="padding:20px;">
+                        <div class="col-9">
+                            <h4 style="font-size:18px; font-weight: 700; color: #313131;">Special Handling Comments</h4>
+                        </div>
+                        <div class="col-3" style="display: flex; justify-content:flex-end;"><button pButton pRipple
+                                label="Add Comment" class="btn-edit" icon="pi pi-check-square"></button>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="grid mb-4">
+                                <div class="col" style="width: 13%;"><p-avatar
+                                        image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+                                        styleClass="mr-2" size="large" shape="circle"></p-avatar></div>
+                                <div class="col" style="width:87%; display: flex; flex-direction: column;">
+                                    <h6 style="font-size: 16px; font-weight: 500; color: #868686;">Malith Weeramuni
+                                        <span>2023/11/24</span>
+                                    </h6>
+                                    <p style="font-size: 16px; font-weight: 500; color: #313131;">Lorem ipsum dolor sit
+                                        amet
+                                        consectetur, adipisicing elit. Modi, odit debitis. Error amet impedit inventore
+                                        esse?
+                                        Veritatis, omnis nulla! Et, laborum sit aperiam aliquam consequuntur adipisci
+                                        eligendi
+                                        hic ad nihil.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- applicant card details -->
+        <div class="card">
+            <div class="grid" style="padding: 20px;">
+                <div class="col-11">
+                    <h4 style="font-size:18px; font-weight: 700; color: #313131;">Applicant Details</h4>
+                </div>
+                <div class="col-1" style="display: flex; justify-content:flex-end;"><button pButton pRipple label="Edit"
+                        class="btn-edit" icon="pi pi-check-square"></button>
+                </div>
+
+                <div class="col-12">
+                    <div class="grid mb-4">
+                        <div class="col" style="width: 13%; border-radius: 50%;">
+                            <p-image src="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+                                alt="Image" width="100%"></p-image>
+                        </div>
+                        <div class="col" style="width:80%; display: flex; flex-direction: column; padding: 30px;">
+                            <h6 style="font-size: 22px; font-weight: 700; color: #313131;">Ms. Melissa McDrmott
+                            </h6>
+                            <h6 style="font-size: 18px; font-weight: 500; color: #313131;">Senior Software Engineer</h6>
+                            <div class="grid" style="padding-top: 10px;">
+                                <div class="col-12 flex flex-wrap gap-3 justify-content">
+                                    <button pButton pRipple label="Make a Call" style="background-color: #8245cc;"
+                                        class="btnApplicant" icon="pi pi-phone"></button>
+                                    <button pButton pRipple label="Send an Email" style="background-color: #09060d;"
+                                        class="btnApplicant" icon="pi pi-envelope"></button>
+                                    <button pButton pRipple label="Print Envelope" style="background-color: #09060d;"
+                                        class="btnApplicant" icon="pi pi-print"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="border-width: 1px; margin-top: 20px;">
+                    <div class="grid flex flex-wrap gap-6 justify-content" style="padding: 20px;">
+                        <div class="col" style="width: 22%;">
+                            <div class="grid">
+                                <div class="col"><p-avatar icon="pi pi-envelope" styleClass="mr-2" size="large"
+                                        shape="circle"></p-avatar></div>
+                                <div class="col appDet" style="display: flex; flex-direction: column;">
+                                    <h6 style="font-size: 18px; color: #929292; font-weight:600;">Email</h6>
+                                    <p style="font-size: 18px; color: #313131; font-weight:600;">melissa@cloud.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col" style="width: 22%;">
+                            <div class="grid">
+                                <div class="col"><p-avatar icon="pi pi-phone" styleClass="mr-2" size="large"
+                                        shape="circle"></p-avatar></div>
+                                <div class="col appDet" style="display: flex; flex-direction: column;">
+                                    <h6>Phone</h6>
+                                    <p>909-646-2461</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col" style="width: 50%;">
+                            <div class="grid">
+                                <div class="col"><p-avatar icon="pi pi-envelope" styleClass="mr-2" size="large"
+                                        shape="circle"></p-avatar></div>
+                                <div class="col appDet" style="display: flex; flex-direction: column;">
+                                    <h6>Address</h6>
+                                    <p>15534 Sandhurst St, Fontana, SA 92336- San Bernardino Country</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col" style="width: 22%;">
+                            <div class="grid">
+                                <div class="col"><p-avatar icon="pi pi-gift" styleClass="mr-2" size="large"
+                                        shape="circle"></p-avatar></div>
+                                <div class="col appDet" style="display: flex; flex-direction: column;">
+                                    <h6 style="font-size: 18px; color: #929292; font-weight:600;">Birthday</h6>
+                                    <p style="font-size: 18px; color: #313131; font-weight:600;">melissa@cloud.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col" style="width: 22%;">
+                            <div class="grid">
+                                <div class="col"><p-avatar icon="pi pi-id-card" styleClass="mr-2" size="large"
+                                        shape="circle"></p-avatar></div>
+                                <div class="col appDet" style="display: flex; flex-direction: column;">
+                                    <h6>Social security number</h6>
+                                    <p>556-65-5771</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col" style="width: 50%;">
+                            <div class="grid">
+                                <div class="col"><p-avatar icon="pi pi-user" styleClass="mr-2" size="large"
+                                        shape="circle"></p-avatar></div>
+                                <div class="col appDet" style="display: flex; flex-direction: column;">
+                                    <h6>Gender</h6>
+                                    <p>Female</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Applicant details update part -->
+        <div class="card">
+            <div class="grid" style="padding: 20px;">
+                <div class="col-3">
+                    <h4 style="font-size:18px; font-weight: 700; color: #313131;">Applicant Details</h4>
+                </div>
+                <div class="col-9" style="display: flex; justify-content:end; gap: 10px;">
+                    <button pButton pRipple label="Make a Call" class="btn-edit" icon="pi pi-phone"></button>
+                    <button pButton pRipple label="Send an Email" class="btn-edit" icon="pi pi-envelope"></button>
+                    <button pButton pRipple label="Print Envelope" class="btn-edit" icon="pi pi-print"></button>
+                    <button pButton pRipple label="Edit" class="btn-edit" icon="pi pi-check-square"></button>
+                </div>
+            </div>
+            <div class="grid" style="padding: 20px;">
+                <div class="col" style="width: 14%; border-radius: 50%;">
+                    <p-image src="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" alt="Image"
+                        width="100%"></p-image>
+                </div>
+                <div class="col" style="width: 20%; display: flex;flex-direction: column; padding: 20px;">
+                    <h6 style="font-size: 22px; font-weight: 700; color: #313131;">Ms. Melissa McDrmott
+                    </h6>
+                    <h6 style="font-size: 18px; font-weight: 500; color: #313131;">Senior Software Engineer</h6>
+                    <p style="font-size:16px; font-weight: 400; color: #868686;">Birthday: <span
+                            style="color: #09060d;">19080/05/14</span></p>
+                    <p style="font-size:16px; font-weight: 400; color: #868686;">Birthday: <span
+                            style="color: #09060d;">19080/05/14</span></p>
+                    <p style="font-size:16px; font-weight: 400; color: #868686;">Birthday: <span
+                            style="color: #09060d;">19080/05/14</span></p>
+                </div>
+                <div class="col colApps">
+                    <div class="grid">
+                        <div class="col"><p-avatar icon="pi pi-envelope" styleClass="mr-2" size="small"
+                                shape="circle"></p-avatar></div>
+                        <div class="col">
+                            <h6 style="font-size: 18px; color: #010101; font-weight:600;">Email</h6>
+                        </div>
+                    </div>
+                    <div class="grid" style="padding: 20px 0 0 65px;">
+                        <p style="font-size: 18px; color: #313131; font-weight:600;">melissa@cloud.com</p>
+                        <p style="font-size: 18px; color: #313131; font-weight:600;">melissa@cloud.com</p>
+                        <p style="font-size: 18px; color: #313131; font-weight:600;">melissa@cloud.com</p>
+                    </div>
+                </div>
+                <div class="col colApps">
+                    <div class="grid">
+                        <div class="col"><p-avatar icon="pi pi-phone" styleClass="mr-2" size="small"
+                                shape="circle"></p-avatar></div>
+                        <div class="col">
+                            <h6 style="font-size: 18px; color: #010101; font-weight:600;">Phone</h6>
+                        </div>
+                    </div>
+                    <div class="grid" style="padding: 20px 0 0 65px;">
+                        <p style="font-size: 18px; color: #313131; font-weight:600;">melissa@cloud.com</p>
+                        <p style="font-size: 18px; color: #313131; font-weight:600;">melissa@cloud.com</p>
+                        <p style="font-size: 18px; color: #313131; font-weight:600;">melissa@cloud.com</p>
+                    </div>
+                </div>
+                <div class="col colApps">
+                    <div class="grid">
+                        <div class="col"><p-avatar icon="pi pi-home" styleClass="mr-2" size="small"
+                                shape="circle"></p-avatar></div>
+                        <div class="col">
+                            <h6 style="font-size: 18px; color: #010101; font-weight:600;">Address</h6>
+                        </div>
+                    </div>
+                    <div class="grid" style="padding: 20px 0 0 65px;">
+                        <p style="font-size: 18px; color: #313131; font-weight:600;">15534 Sandhurst St.</p>
+                        <p style="font-size: 18px; color: #313131; font-weight:600;">Fontana, SA 92336- San</p>
+                        <p style="font-size: 18px; color: #313131; font-weight:600;">Bernardino Country.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid" style="padding: 20px;">
+                <div class="col-12">
+                    <p-tabView [activeIndex]="2" styleClass="tabview-custom">
+                        <p-tabPanel header="Suppliments"></p-tabPanel>
+                        <p-tabPanel header="Insurence"></p-tabPanel>
+                        <p-tabPanel header="Comments">
+                            <div class="card" style="border: none;">
+                                <div class="grid" style="padding: 20px;">
+                                    <div class="col-12">
+                                        <div class="grid">
+                                            <div class="col-12" style="display: flex; justify-content: end;">
+                                                <button pButton pRipple label="Add Comment" class="btn-edit"
+                                                    icon="pi pi-check-square"></button>
+                                            </div>
+                                        </div>
+                                        <div class="grid mb-4">
+                                            <div class="col" style="width: 10%;"><p-avatar
+                                                    image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+                                                    styleClass="mr-2" size="xlarge" shape="circle"></p-avatar></div>
+                                            <div class="col" style="width:90%; display: flex; flex-direction: column;">
+                                                <h6 style="font-size: 16px; font-weight: 500; color: #868686;">Malith
+                                                    Weeramuni
+                                                    <span>2023/11/24</span>
+                                                </h6>
+                                                <p style="font-size: 16px; font-weight: 500; color: #313131;">Lorem
+                                                    ipsum
+                                                    dolor sit amet
+                                                    consectetur, adipisicing elit. Modi, odit debitis. Error amet
+                                                    impedit
+                                                    inventore esse?
+                                                    Veritatis, omnis nulla! Et, laborum sit aperiam aliquam consequuntur
+                                                    adipisci eligendi
+                                                    hic ad nihil. </p>
+                                            </div>
+                                        </div>
+                                        <div class="grid">
+                                            <div class="col" style="width: 10%;"><p-avatar
+                                                    image="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png"
+                                                    styleClass="mr-2" size="xlarge" shape="circle"></p-avatar></div>
+                                            <div class="col" style="width:90%; display: flex; flex-direction: column;">
+                                                <h6 style="font-size: 16px; font-weight: 500; color: #868686;">Lakindu
+                                                    Oshada
+                                                    <span>2023/11/24</span>
+                                                </h6>
+                                                <p style="font-size: 16px; font-weight: 500; color: #313131;">Lorem
+                                                    ipsum
+                                                    dolor sit amet
+                                                    consectetur, adipisicing elit. Modi, odit debitis. Error amet
+                                                    impedit
+                                                    inventore esse?
+                                                    Veritatis, omnis nulla! Et, laborum sit aperiam aliquam consequuntur
+                                                    adipisci eligendi
+                                                    hic ad nihil.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </p-tabPanel>
+                        <p-tabPanel header="Discontent Party"></p-tabPanel>
+                        <p-tabPanel header="Notes"></p-tabPanel>
+                        <p-tabPanel header="Testimonial Party"></p-tabPanel>
+                    </p-tabView>
+                </div>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Case Log">
+        <ng-template pTemplate="header">
+            <i class="pi pi-list"></i>
+            <span style="margin-left: 5px;">Case Log</span>
+        </ng-template>
+        
+    </p-tabPanel>
+    <p-tabPanel header="Injury">
+        <ng-template pTemplate="header">
+            <i class="pi pi-user"></i>
+            <span style="margin-left: 5px;">Injury</span>
+        </ng-template>
+
+    </p-tabPanel>
+    <p-tabPanel header="Parties">
+        <ng-template pTemplate="header">
+            <i class="pi pi-users"></i>
+            <span style="margin-left: 5px;">Parties</span>
+        </ng-template>
+
+    </p-tabPanel>
+    <p-tabPanel header="Documents">
+        <ng-template pTemplate="header">
+            <i class="pi pi-paperclip"></i>
+            <span style="margin-left: 5px;">Documents</span>
+        </ng-template>
+
+    </p-tabPanel>
+</p-tabView>

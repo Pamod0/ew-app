@@ -1,0 +1,113 @@
+<p-confirmDialog key="createMacroFieldConfirmDialog"
+                 header="Confirmation"
+                 icon="pi pi-exclamation-triangle"
+                 [style]="{ 'z-index': '100000 !important'}"
+                 styleClass="custom-confirm-dialog"
+                 [closeOnEscape]="false"
+                 [closable]="false">
+</p-confirmDialog>
+
+
+
+<div class="custom-toolbar-card">
+
+  <p-toolbar styleClass="toolbar-create-policy">
+
+    <div class="p-toolbar-group-left">
+      <span style="color:#000; padding-left: 0.5rem; font-weight: 500;">Add Parameter</span>
+    </div>
+
+    <div class="p-toolbar-group-right">
+      <button type="button"
+              pButton
+              pRipple
+              type="button"
+              icon="fas fa-save"
+              label="ADD"
+              class="app-mt-3 p-ml-4 app-mb-1"
+              (click)="add()"></button>
+
+      <button type="button"
+              pButton
+              pRipple
+              type="button"
+              icon="fas fa-times"
+              class="p-button-danger app-mt-3 app-ml-5 app-mb-1 app-mr-5"
+              (click)="close()"></button>
+    </div>
+
+  </p-toolbar>
+
+</div>
+
+
+
+<form [formGroup]="_form">
+
+  <div class="custom-list-card"
+       style="background-color: #e0e0e0; border: 0px solid #e0e0e0;">
+
+    <div class="custom-data-section">
+
+      <div class="p-col-12 app-p-0">
+
+        <div class="p-grid p-fluid">
+
+          <div class="p-col-fixed app-p-1"
+               style="min-width: 410px; max-width: fit-content;">
+
+
+            <div class="custom-data-section app-p-1"
+                 style="background-color: #eff1f3">
+
+              <div class="custom-data-sub-section">
+
+                <div class="p-col-12 app-pt-5 app-pb-0">
+
+                  <div class="p-grid">
+                    <div class="p-col-12 p-pt-0 p-pb-0">
+                      <div class="p-field p-grid">
+
+                        <div class="p-col-3">
+                          <label 
+                                 style="width: 100px"><strong>Parameter</strong></label>
+
+                        </div>
+                        <div class="p-col-9">
+
+                          <input type="text"
+                                 pInputText
+                                 EmptyToNull
+                                 autocomplete="off"
+                                 autocomplete="nope"
+                                 formControlName="parameter"
+                                 #parameter />
+                          <ui-validation-message [control]="_form.get('parameter')"
+                                                 *ngIf="_formSubmitAttempt == true">
+                          </ui-validation-message>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</form>

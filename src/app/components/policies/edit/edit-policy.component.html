@@ -1,0 +1,173 @@
+<p-confirmDialog key="editPolicyConfirmDialog" header="Confirmation" icon="pi pi-exclamation-triangle"
+  [style]="{ 'z-index': '100000 !important'}" styleClass="custom-confirm-dialog" [closeOnEscape]="false"
+  [closable]="false">
+</p-confirmDialog>
+
+
+<div class="custom-card p-shadow-3">
+
+  <div class="custom-toolbar-card">
+
+    <p-toolbar styleClass="toolbar-edit-policy">
+
+      <div class="p-toolbar-group-left">
+        <span style="color:#000; padding-left: 0.5rem; font-weight: 500;">Edit User Policy</span>
+      </div>
+
+      <div class="p-toolbar-group-right">
+        <button type="button" pButton pRipple type="button" icon="fas fa-save" label="Save"
+          class="app-mt-2 p-ml-4 app-mb-2" (click)="save()"></button>
+
+        <button type="button" pButton pRipple type="button" icon="fas fa-times"
+          class="p-button-danger app-mt-2 app-ml-5 app-mb-2 app-mr-5" (click)="close()"></button>
+      </div>
+
+    </p-toolbar>
+
+  </div>
+
+  <form [formGroup]="_form">
+
+    <p-tabView [(activeIndex)]="_activeTabIndex" #appointmentSettingTabView (onChange)="onTabIndexChange($event)">
+
+      <p-tabPanel header="General">
+
+        <div class="p-col-12 app-p-0">
+
+          <div class="p-grid p-fluid">
+
+            <div class="p-col-fixed">
+              <div class="custom-data-section app-p-1" style="width: 550px; ">
+
+                <div class="custom-data-sub-section">
+
+                  <div class="p-col-12 app-pt-5 app-pb-0">
+
+                    <div class="p-grid p-fluid">
+
+                      <div class="p-col-8 p-pt-0 p-pb-0">
+
+                        <div class="p-field p-grid">
+
+                          <label style="width: 100px"><strong>Policy Name<span
+                                class="required-star">*</span></strong></label>
+
+                          <div class="p-col">
+
+                            <input type="text" pInputText EmptyToNull autocomplete="off" autocomplete="nope"
+                              [maxlength]="30" formControlName="name" #locationDisplayName />
+                            <ui-validation-message [control]="_form.get('name')" *ngIf="_formSubmitAttempt == true">
+                            </ui-validation-message>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                      <div class="p-col-4 p-pt-0 p-pb-0">
+
+                        <div class="p-field p-grid">
+
+                          <div class="p-grid p-fluid">
+
+                            <label style="width: 51px"><strong>Status<span
+                                  class="required-star">*</span></strong></label>
+
+                            <div class="p-col">
+
+                              <p-dropdown [options]="_recordStatusList" formControlName="recordStatusId"
+                                optionLabel="label" optionValue="value" [style]="{'width':'100px'}" #recordStatusId>
+                              </p-dropdown>
+                              <ui-validation-message [control]="_form.get('recordStatusId')">
+                              </ui-validation-message>
+
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+                  <div class="p-col-12 app-pt-1 app-pb-3">
+
+                    <div class="p-grid p-fluid">
+
+                      <div class="p-col-12 p-pt-0 p-pb-0">
+
+                        <div class="p-field p-grid">
+
+                          <label style="width: 100px; margin-top: -75px;"><strong>Description<span
+                                class="required-star">*</span></strong></label>
+
+                          <div class="p-col">
+
+                            <textarea type="text" pInputText EmptyToNull pInputTextarea autocomplete="off"
+                              autocomplete="nope" [maxlength]="120" [rows]="5" formControlName="description"
+                              #departmentDisplayName>
+                              </textarea>
+                            <ui-validation-message [control]="_form.get('description')"
+                              *ngIf="_formSubmitAttempt == true">
+                            </ui-validation-message>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </p-tabPanel>
+
+      <p-tabPanel header="Permissions">
+        <div class="p-col-12 app-p-0">
+
+          <div class="p-grid p-fluid">
+
+            <div class="p-col-fixed">
+
+              <div class="custom-data-section app-p-1" style="width: 550px; height: calc(100vh - 130px);">
+
+                <div class="custom-data-sub-section">
+
+                  <p-tree p-tree [value]="files2" [(selection)]="selectedFiles2" selectionMode="checkbox"
+                    (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)" selectable="true"
+                    scrollHeight="calc(100vh - 165px)" [style]="{ height: 'calc(100vh - 132px)'}" [filter]="true"
+                    style="padding: -1rem -1rem -1rem -1rem;">
+                  </p-tree>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </p-tabPanel>
+
+    </p-tabView>
+  </form>
+
+</div>

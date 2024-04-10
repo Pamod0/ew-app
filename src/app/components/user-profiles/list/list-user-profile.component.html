@@ -1,0 +1,174 @@
+<div class="p-grid">
+
+    <div class="p-col-12">
+
+        <div class="p-fluid">
+
+            <div class="custom-list-card">
+
+                <div class="custom-toolbar-card">
+                    <p-toolbar styleClass="toolbar-user-profile-list">
+                        <div class="p-toolbar-group-left">
+                            <span style="padding-left: 0.7rem; font-weight: 500;">{{ _pageTitle }} {{
+                                _pageSubTitle}}</span>
+                            <button pButton pRipple type="button" label="New" icon="fas fa-plus"
+                                class="app-mt-3 p-ml-4 app-mb-2" (click)="create()" pTooltip="New"></button>
+                        </div>
+
+                        <div class="p-toolbar-group-right">
+                            <button pButton pRipple type="button" icon="fas fa-times"
+                                class="p-button-danger app-mt-3 app-ml-5 app-mb-2 app-mr-5" (click)="close()"
+                                pTooltip="Close"></button>
+                        </div>
+                    </p-toolbar>
+                </div>
+                <div class="custom-data-section">
+
+                    <form [formGroup]="_form">
+
+                        <p-table [value]="_list" [totalRecords]="_totalRecords" [lazy]="true"
+                            [(selection)]="_selectedRow" dataKey="id" styleClass="p-datatable-gridlines"
+                            selectionMode="single" responsiveLayout="stack" [paginator]="_list?.length > 0"
+                            paginatorPosition="top" [rows]="10" (onLazyLoad)="onLazyLoad($event)" #userProfileTable>
+
+                            <ng-template pTemplate="caption">
+
+                                <div class="p-col-12 app-p-3">
+
+                                    <div class="p-inputgroup">
+
+                                        <span class="p-input-icon-right">
+                                            <input type="text" pInputText class="p-inputtext-sm"
+                                                formControlName="keyword" (keyup)="onSearchKeyUp($event)" #keyword />
+                                            <i class="fas fa-times" (click)="clearSearch()"></i>
+                                        </span>
+
+                                        <div class="app-pl-5">
+                                            <button pButton pRipple type="button" icon="fas fa-search" label="Search"
+                                                style="width: 80px;" (click)="onRegularSearchClick()"
+                                                pTooltip="Search"></button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </ng-template>
+
+                            <ng-template pTemplate="header" let-columns>
+                                <tr>
+                                    <th style="width: 10%;">ACTIONS</th>
+                                    <th style="width: 5%;">ID</th>
+                                    <th style="width: 20%;">NAME</th>
+                                   <!--<th style="width: 20%;">LAST NAME</th> --> 
+                                    <th style="width: 10%;">LOGIN ID</th>
+                                    <th style="width: 15%;">EMAIL</th>
+                                    <th style="width: 10%;">PHONE</th>
+                                    <th style="width: 10%;">STATUS</th>
+                                </tr>
+                            </ng-template>
+
+                            <ng-template pTemplate="body" let-rowData let-columns="columns" let-expanded="expanded">
+
+                                <tr [pSelectableRow]="rowData">
+
+                                    <td>
+                                        <span class="p-column-title">Actions</span>
+                                        <button pButton pRipple type="button" icon="fas fa-eye" (click)="view(rowData)"
+                                            pTooltip="View"></button>
+
+                                        <button pButton pRipple type="button" icon="fas fa-edit" (click)="edit(rowData)"
+                                            class="p-ml-2" pTooltip="Edit"></button>
+                                    </td>
+
+                                    <td>
+                                        <span class="p-column-title">ID</span>
+                                        {{ rowData.id }}
+                                    </td>
+
+                                    <td>
+                                        <span class="p-column-title">First Name</span>
+                                        {{ rowData.firstName }} {{ rowData.lastName }}
+                                    </td>
+
+                                   <!--<td
+                                        [ngClass]="{'disable': rowData?.lastName == null || rowData?.lastName?.length == 0}">
+                                        <span class="p-column-title">Last Name</span>
+                                        {{ rowData.lastName }}
+                                    </td>--> 
+
+                                    <td
+                                        [ngClass]="{'disable': rowData?.loginId == null || rowData?.loginId?.length == 0}">
+                                        <span class="p-column-title">Login Id</span>
+                                        {{ rowData.loginId }}
+                                    </td>
+
+                                    <td [ngClass]="{'disable': rowData?.eMail == null || rowData?.eMail?.length == 0}">
+                                        <span class="p-column-title">Email</span>
+                                        {{ rowData.eMail }}
+                                    </td>
+
+                                    <td [ngClass]="{'disable': rowData?.phone == null || rowData?.phone?.length == 0}">
+                                        <span class="p-column-title">Phone</span>
+                                        {{ rowData.phone }}
+                                    </td>
+
+                                    <td
+                                        [ngClass]="{'disable': rowData?.recordStatusId == null || rowData?.recordStatusId?.length == 0}">
+                                        <span class="p-column-title">Status</span>
+                                        {{rowData.recordStatusId | enumAsString:_recordStatus}}
+                                    </td>
+
+                                </tr>
+                            </ng-template>
+                        </p-table>
+
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+<!-- 
+<p-dialog header="User Profile View"
+          [(visible)]="_isViewUserProfileVisible"
+          [modal]="true"
+          position="left"
+          [closeOnEscape]="false"
+          [showHeader]="false"
+          styleClass="custom-dialog">
+    <aeliusmd-view-user-profile [id]="_userProfile?.id"
+                                (userProfileViewCloseEvent)="userProfileViewCloseEventHandler($event)"
+                                #viewUserProfileComponent>
+    </aeliusmd-view-user-profile>
+</p-dialog>
+
+<p-dialog header="User Profile Create"
+          [(visible)]="_isCreateUserProfileVisible"
+          [modal]="true"
+          position="left"
+          [closeOnEscape]="false"
+          [showHeader]="false"
+          styleClass="custom-dialog">
+    <aeliusmd-create-user-profile (userProfileCreatedEvent)="userProfileCreatedEventHandler($event)"
+                                  (userProfileCreateCloseEvent)="userProfileCreateCloseEventHandler($event)"
+                                  #createUserProfileComponent>
+    </aeliusmd-create-user-profile>
+</p-dialog>
+
+<p-dialog header="User Profile Edit"
+          [(visible)]="_isEditUserProfileVisible"
+          [modal]="true"
+          position="left"
+          [closeOnEscape]="false"
+          [showHeader]="false"
+          styleClass="custom-dialog">
+    <aeliusmd-edit-user-profile [id]="_userProfile?.id"
+                                (userProfileEditedEvent)="userProfileEditedEventHandler($event)"
+                                (userProfileEditCloseEvent)="userProfileEditCloseEventHandler($event)"
+                                #editUserProfileComponent>
+    </aeliusmd-edit-user-profile>
+</p-dialog> -->

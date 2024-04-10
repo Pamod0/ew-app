@@ -1,0 +1,8 @@
+:host ::ng-deep .p-toolbar.toolbar-view-user-policy {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+:host ::ng-deep .p-checkbox-box {
+  pointer-events: none;
+}

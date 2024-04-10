@@ -1,0 +1,238 @@
+// tab view
+:host ::ng-deep .p-tabview .p-tabview-panels {
+    background-color: #f8f9ff;
+    padding: 0;
+}
+
+:host :ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+    border-width: 0 0 3px 0;
+}
+
+:host ::ng-deep .p-tabview-nav-link {
+    font-size: 18px;
+    color: #010101;
+    font-weight: 500;
+}
+:host ::ng-deep .p-tabview .p-tabview-nav li {
+    margin-right: 15px;
+}
+
+:host ::ng-deep .p-tabview .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover .p-tabview-nav-link {
+    border-color: #8245cc;
+}
+:host ::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+    border-color: #8245cc;
+    color: #010101;
+}
+
+:host ::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
+    box-shadow: none;
+}
+
+// breadcrumb part
+:host ::ng-deep .p-breadcrumb {
+    border: none;
+    padding: 0 0 10px 0;
+}
+
+// avatar
+:host ::ng-deep .p-avatar.p-avatar-xl {
+    width: 7rem;
+    height: 7rem;
+}
+
+:host ::ng-deep .p-avatar.p-avatar-lg {
+    width: 5rem;
+    height: 5rem;
+    background-color: #ffffff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    color: #313131;
+}
+
+:host ::ng-deep .p-avatar {
+    width: 3rem;
+    height: 3rem;
+    background-color: #ffffff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    color: #313131;
+}
+
+:host ::ng-deep .appImage {
+    width: 15rem;
+    height: 15rem;
+}
+
+.caseAgenda {
+    font-size: 16px;
+    font-weight: 400;
+    color: #000000;
+    padding-top: 15px;
+    padding-left: 20px;
+}
+
+.btn-open {
+    color: #2cb965;
+    background-color: lightgreen;
+    font-size: 16px;
+    font-weight: 700;
+    align-items: center;
+    border: none;
+    height: 24px;
+}
+.btn-close {
+    color: #b92c2c;
+    background-color: rgb(236, 103, 110);
+    font-size: 16px;
+    font-weight: 700;
+    align-items: center;
+    border: none;
+    height: 24px;
+}
+
+.brCol {
+    border-right: 2px solid #d9d9d9;
+}
+
+.btn-edit {
+    height: 24px;
+    background-color: transparent;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 400;
+    align-items: center;
+    border: none;
+}
+
+.colApps {
+    padding: 30px 30px 0 30px;
+    border-left: 2px solid #d9d9d9;
+    width: 22%;
+}
+
+.colApps p {
+    line-height: 1;
+}
+
+.col {
+    flex-basis: auto;
+    flex-grow: inherit;
+}
+
+.btnApplicant {
+    width: 150px;
+    height: 30px;
+    color: #ffffff;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px;
+}
+
+h6 {
+    margin: 0.6rem 0 0.5rem 0;
+}
+
+.appDet h6 {
+    font-size: 18px;
+    color: #929292;
+    font-weight: 600;
+}
+
+.appDet p {
+    font-size: 18px;
+    color: #313131;
+    font-weight: 600;
+}
+
+.prBar {
+    padding-right: 0;
+}
+
+.p-bar p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #010101;
+}
+
+:host ::ng-deep .p-badge {
+    width: 1rem;
+    height: 1rem;
+    min-width: 1rem;
+    margin-right: 5px;
+}
+
+/* Styles for the first <p-badge> */
+:host ::ng-deep p:nth-child(1) .p-badge {
+    background-color: #8245cc;
+    /* Set background color for the first badge */
+}
+
+/* Styles for the second <p> tag */
+:host ::ng-deep p:nth-child(2) .p-badge {
+    background-color: #36c3f1;
+    /* Set background color for the second badge */
+}
+
+/* Styles for the third <p> tag */
+:host ::ng-deep p:nth-child(3) .p-badge {
+    background-color: #55dca4;
+    /* Set background color for the third badge */
+}
+
+/* Styles for the fourth <p> tag */
+:host ::ng-deep p:nth-child(4) .p-badge {
+    background-color: #ff67b9;
+    /* Set background color for the fourth badge */
+}
+
+// progress bar section
+:host ::ng-deep .p-progressbar {
+    height: 1rem;
+}
+
+:host ::ng-deep .prBar:nth-child(1) .p-progressbar {
+    background-color: #d8ddff;
+    /* Set background color for the fourth badge */
+}
+
+:host ::ng-deep .prBar:nth-child(2) .p-progressbar {
+    background-color: #b7edff;
+    /* Set background color for the fourth badge */
+}
+
+:host ::ng-deep .prBar:nth-child(1) .p-progressbar .p-progressbar-value {
+    background-color: #8245cc;
+}
+
+:host ::ng-deep .prBar:nth-child(2) .p-progressbar .p-progressbar-value {
+    background-color: #36c3f1;
+}
+:host ::ng-deep .prBar:nth-child(3) .p-progressbar .p-progressbar-value {
+    background-color: #55dca4;
+}
+
+:host ::ng-deep .prBar:nth-child(4) .p-progressbar .p-progressbar-value {
+    background-color: #ff67b9;
+}
+:host ::ng-deep .prBar:nth-child(3) .p-progressbar {
+    background-color: #d8ddff;
+    /* Set background color for the fourth badge */
+}
+
+:host ::ng-deep .prBar:nth-child(4) .p-progressbar {
+    background-color: #d8ddff;
+    /* Set background color for the fourth badge */
+}
+
+// search button tab2
+.searchBtn{
+    width: 500px;
+    height: 40px;
+    background-color: #f8f9ff;
+    display: flex;
+    justify-content: flex-start;
+    color: #010101;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+}

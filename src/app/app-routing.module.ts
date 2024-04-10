@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login-register/login/login.componen
 import { AccountTypeComponent } from './components/login-register/account-type/account-type.component';
 import { DefaultLayoutComponent } from './containers/default-layout/default-layout.component';
 import { AppMainComponent } from './containers/module-layout/app.main.component';
+import { RegisterCommunityComponent } from './components/login-register/register/register-community/register-community.component';
 
 const routes: Routes = [
     {
@@ -34,8 +35,17 @@ const routes: Routes = [
                 component: LoginComponent
             },
             {
-                path: 'account-type',
-                component: AccountTypeComponent
+                path: 'register',
+                children: [
+                    {
+                        path: '',
+                        component: AccountTypeComponent
+                    },
+                    {
+                        path: 'community',
+                        component: RegisterCommunityComponent
+                    }
+                ]
             }
         ]
     },
@@ -52,20 +62,28 @@ const routes: Routes = [
         ]
     },
     {
-        path: 'a',
+        path: 'home',
         component: LandingPageComponent
     },
     {
-        path: 'b',
+        path: 'c',
         component: AccountTypeComponent
     },
     {
-        path: 'c',
+        path: 'b',
         component: LoginComponent
     },
     {
         path: 'd',
+        component: RegisterCommunityComponent
+    },
+    {
+        path: 'z',
         component: AppMainComponent
+    },
+    {
+        path: '**',
+        redirectTo: 'public'
     }
 ];
 

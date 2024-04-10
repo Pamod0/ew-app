@@ -1,0 +1,11 @@
+:host ::ng-deep .p-toolbar.toolbar-macro-field-edit {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+.custom-data-sub-section-header{
+  background-color: #e0e0e0;
+  color: #000;
+  padding-left: 5px;
+  font-weight: bold;
+}

@@ -1,0 +1,172 @@
+<p-confirmDialog key="editUserGroupConfirmDialog" header="Confirmation" icon="pi pi-exclamation-triangle"
+    [style]="{ 'z-index': '100000 !important' }" styleClass="custom-confirm-dialog" [closeOnEscape]="false"
+    [closable]="true">
+</p-confirmDialog>
+
+<div class="custom-card p-shadow-3">
+
+    <div class="custom-toolbar-card">
+        <p-toolbar styleClass="toolbar-edit-user-group">
+            <div class="p-toolbar-group-left">
+                <span style="padding-left: 0.7rem; font-weight: 500;">{{ _pageTitle }} {{ _pageSubTitle}}</span>
+            </div>
+
+            <div class="p-toolbar-group-right">
+                <button type="button" pButton pRipple icon="fas fa-save" class="app-mt-3 p-ml-4 app-mb-3" label="Save"
+                    (click)="save()" pTooltip="Save"></button>
+
+                <button pButton pRipple type="button" icon="fas fa-lg fa-times"
+                    class="p-button-danger app-mt-3 app-mb-3 app-ml-5 app-mr-3" (click)="close()"></button>
+            </div>
+        </p-toolbar>
+    </div>
+
+    <form [formGroup]="_form">
+
+        <div class="custom-data-section" style="background-color: #ffffff;">
+
+            <div class="p-col-12 app-p-0">
+
+                <div class="p-grid p-fluid">
+
+                    <div class="p-col-fixed">
+
+                        <div class="custom-data-section" style="width: 450px;">
+
+                            <div class="custom-data-sub-section app-mt-1 app-mb-1">
+
+                                <div class="p-col-12 app-pt-5 app-pb-0">
+                                    <div class="p-grid">
+                                        <div class="p-col-6 p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width: 100px"><strong>Code<span
+                                                            class="required-star">*</span></strong></label>
+                                                <div class="p-col">
+                                                    <input type="text" style="width: 45%;"
+                                                        (focus)="onUserGroupCodeFocus()" pInputText class="p-inputtext-sm"
+                                                        formControlName="code" maxlength="3" #userGroupCode />
+                                                    <ui-validation-message [control]="_form.get('code')">
+                                                    </ui-validation-message>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="p-col-1 p-pt-0 p-pb-0"></div>
+
+                                        <div class="p-col-5 p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width: 60px"><strong>Status<span
+                                                            class="required-star">*</span></strong></label>
+                                                <div class="p-col app-pl-0">
+                                                    <!-- <input type="text"
+                                                           pInputText
+                                                           (focus)="onRecordStatusFocus()"
+                                                           (change)="onRecordStatusChange()"
+                                                           (keydown)="$event.preventDefault()"
+                                                           formControlName="recordStatusDisplayName"
+                                                           #recordStatus /> -->
+                                                    <p-dropdown [options]="_recordStatus"
+                                                        formControlName="recordStatusId" optionLabel="label"
+                                                        optionValue="value" #recordStatusId></p-dropdown>
+                                                    <ui-validation-message [control]="_form.get('recordStatusId')">
+                                                    </ui-validation-message>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12 app-pt-5 app-pb-0">
+                                    <div class="p-grid">
+                                        <div class="p-col-12 p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width: 100px;"><strong>Description
+                                                        <span class="required-star">*</span></strong></label>
+                                                <div class="p-col">
+                                                    <textarea type="text" style="width: 100%;"
+                                                        (focus)="onUserGroupDescriptionFocus()" pInputText [rows]="3"
+                                                        maxlength="100" formControlName="description"
+                                                        #userGroupDescription>
+                                                        </textarea>
+                                                    <ui-validation-message [control]="_form.get('description')">
+                                                    </ui-validation-message>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12 app-pt-3 app-pb-3">
+                                    <div class="p-grid">
+                                        <div class="p-col-12 p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width: 100px;"><strong>Policies
+                                                        <span class="required-star">*</span></strong></label>
+                                                <div class="p-col">
+
+                                                    <p-table [value]="_policies" [columns]="_tableColumns"
+                                                        styleClass="p-datatable-gridlines p-datatable-striped"
+                                                        dataKey="value" responsiveLayout="stack" [scrollable]="true"
+                                                        scrollHeight="175px" [style]="{ height: '220px' }">
+
+                                                        <ng-template pTemplate="caption" let-columns>
+                                                            <tr>
+                                                                <th class="app-p-1">
+                                                                    <span style="margin-left: auto;">
+                                                                        <button pButton pRipple type="button"
+                                                                            icon="fas fa-plus"
+                                                                            (click)="onPolicyAddClick($event)"
+                                                                            pTooltip="Add"></button>
+                                                                    </span>
+                                                                </th>
+                                                            </tr>
+
+                                                        </ng-template>
+
+
+                                                        <ng-template pTemplate="header" let-columns>
+                                                            <tr>
+                                                                <th style="flex: 0 0 20%;">ID</th>
+                                                                <th style="flex: 0 0 80%;">Name</th>
+                                                            </tr>
+                                                        </ng-template>
+
+                                                        <ng-template pTemplate="body" let-policy>
+                                                            <tr [pSelectableRow]="policy">
+                                                                <td style="flex: 0 0 20%;">{{ policy?.id }}</td>
+                                                                <td style="flex: 0 0 80%;">{{ policy?.name }}</td>
+                                                            </tr>
+                                                        </ng-template>
+                                                    </p-table>
+
+                                                    <ui-validation-message [control]="_form.get('policyIds')">
+                                                    </ui-validation-message>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+<p-dialog [(visible)]="_isPoliciesVisible" header="Policies" [modal]="true" icon="pi pi-external-link"
+    styleClass="custom-dialog">
+    <app-multi-select-policy [_selectedPolices]="_policies" (onRecordSelect)="policySelectEventHandler($event)"
+        (onRecordUnSelect)="policyUnSelectEventHandler($event)" (onClose)="onClosePolicies()"
+        #policyMultiSelectComponent>
+    </app-multi-select-policy>
+</p-dialog>

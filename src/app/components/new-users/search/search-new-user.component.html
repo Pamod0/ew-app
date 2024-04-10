@@ -1,0 +1,98 @@
+<div style="position: relative">
+
+    <ngx-spinner name="name_zip_list_ngx_spinner" bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff"
+        type="ball-scale-multiple" [fullScreen]=false>
+    </ngx-spinner>
+
+    <div class="custom-toolbar-card">
+        <p-toolbar styleClass="toolbar-newUsers-search">
+            <div class="p-toolbar-group-left">
+                <span style="color:rgb(15, 2, 2); padding-left: 0.7rem; font-weight: 500;">{{ _pageTitle }}{{
+                    _pageSubTitle
+                    }}</span>
+            </div>
+
+            <div class="p-toolbar-group-right">
+                <p-button icon="pi pi-times" (onClick)="close()" p-button-danger></p-button>
+            </div>
+        </p-toolbar>
+    </div>
+
+    <div class="custom-list-card" style="border: 1px solid #3683ab;">
+
+        <div class="custom-data-section">
+
+            <div class="p-grid">
+
+                <div class="p-col">
+
+                    <div class="p-fluid">
+
+                        <form [formGroup]="_form">
+
+                            <p-table [value]="_list" [columns]="_tableColumns" selectionMode="multiple" [lazy]="true"
+                                styleClass="p-datatable-gridlines" (onLazyLoad)="onLazyLoad($event)" dataKey="id"
+                                [paginator]="_list?.length > 0 " paginatorPosition="bottom" [rows]="10"
+                                [totalRecords]="_totalRecords" responsiveLayout="scroll" [(selection)]="selectedRows"
+                                (onRowSelect)="onRowSelect($event)" #id_p_table>
+
+                                <ng-template pTemplate="caption">
+
+                                    <div class="p-col-12 app-p-3">
+
+                                        <div class="p-toolbar-group-left">
+
+                                            <input type="text" formControlName="keyword" pInputText placeholder=""
+                                                EmptyToNull (keyup)="onSearchKeyUp($event, keyword)" #id_Keyword_input>
+
+                                            <button type="button" pButton pRipple icon="fas fa-lg fa-times"
+                                                styleClass="p-button-warn" pTooltip="Clear Search" class="app-ml-2"
+                                                (click)="onClearSearchClick()"></button>
+
+                                            <button type="button" pButton pRipple icon="fas fa-lg fa-search"
+                                                class="app-ml-2" pTooltip="Search"
+                                                (click)="onSearchClick(keyword)"></button>
+
+                                        </div>
+
+                                    </div>
+
+                                </ng-template>
+
+                                <ng-template pTemplate="header" let-columns>
+                                    <tr>
+                                        <th *ngFor="let col of columns" [hidden]="!col.visible">
+                                            {{col.header}}
+                                        </th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let new-user>
+                                    <tr [pSelectableRow]="new-user">
+                                        <td>{{new-user.firstName}}</td>
+                                        <td>{{new-user.lastName}}</td>
+                                        <td>{{new-user.email}}</td>
+                                        <td>{{new-user.phone}}</td>
+                                        <td>{{new-user.password}}</td>
+                                        <td>{{new-user.confirmPassword}}</td>
+                                        <td>{{new-user.clientId}}</td>
+                                        <td>{{new-user.usersTypeId}}</td>
+                                        <td>{{new-user.companyId}}</td>
+                                       <!-- <td>{{event-type.insurance}}</td>-->
+                                    </tr>
+                                </ng-template>
+
+                            </p-table>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

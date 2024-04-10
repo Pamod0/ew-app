@@ -1,0 +1,133 @@
+<p-confirmDialog key="editMacroFieldConfirmDialog" header="Confirmation" icon="pi pi-exclamation-triangle"
+  [style]="{ 'z-index': '100000 !important'}" styleClass="custom-confirm-dialog" [closeOnEscape]="false"
+  [closable]="false">
+</p-confirmDialog>
+
+
+<div class="custom-card p-shadow-3">
+
+  <div class="custom-toolbar-card">
+
+    <p-toolbar styleClass="toolbar-macro-field-edit">
+
+      <div class="p-toolbar-group-left">
+        <span style="color: #000; padding-left: 0.5rem; font-weight: 500">Edit Macro Field</span>
+      </div>
+
+      <div class="p-toolbar-group-right">
+
+        <button type="button" pButton pRipple icon="fas fa-save" class="app-mt-3 p-ml-4 app-mb-3" label="Save"
+          (click)="save()" pTooltip="Save"></button>
+
+        <button type="button" pButton pRipple type="button" icon="fas fa-times"
+          class="p-button-danger app-mt-3 app-ml-5 app-mb-1 app-mr-5" (click)="close()"></button>
+      </div>
+
+    </p-toolbar>
+
+  </div>
+
+  <form [formGroup]="_form">
+
+    <div class="custom-data-section" style="background-color: #ffffff;">
+
+      <div class="p-col-12 app-p-0">
+
+        <div class="p-grid p-fluid">
+
+          <div class="p-col-fixed app-p-1">
+
+            <div class="custom-data-section app-p-1" style="width: 450px; border: 1px solid #e0e0e0;">
+
+              <div class="custom-data-sub-section app-mt-1 app-mb-1">
+
+
+                <div class="p-col-12 app-pt-5 app-pb-0">
+                  <div class="p-grid">
+                    <div class="p-col-7 p-pt-0 p-pb-0">
+                      <div class="p-field p-grid">
+                        <label style="width: 100px"><strong>Field Name<span class="required-star">*</span></strong></label>
+                        <div class="p-col">
+                          <input id="disabled-input" formControlName="name" type="text" 
+                          maxlength="50" pInputText autocomplete="off"
+                            autocomplete="nope" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="p-col-5 p-pt-0 p-pb-0">
+                      <div class="p-field p-grid">
+                        <label style="width:50px;color: #000;"><strong>
+                            Status<span class="required-star">*</span></strong></label>
+                        <div class="p-col">
+                          <p-dropdown [options]="_recordStatus" formControlName="recordStatusId" optionLabel="label"
+                            optionValue="value" #recordStatusId></p-dropdown>
+                          <ui-validation-message [control]="_form.get('recordStatusId')">
+                          </ui-validation-message>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-col-12 app-pt-2 app-pb-0">
+                  <div class="p-grid">
+                      <div class="p-col-12 p-pt-0 p-pb-0">
+                          <div class="p-field p-grid">
+                              <label style="width:100px"><strong>Description
+                                      <span class="required-star">*</span></strong></label>
+                              <div class="p-col">
+                                  <input type="text" formControlName="description" pInputText 
+                                  maxlength="200"
+                                      #description>
+                                  <ui-validation-message [control]="_form.get('description')"
+                                      *ngIf="_formSubmitAttempt == true">
+                                  </ui-validation-message>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="p-col-12 app-pt-1 app-pb-0">
+
+                  <div class="p-grid">
+
+                    <div class="p-col-12 p-pt-0 p-pb-0">
+
+                      <div class="p-field p-grid">
+
+                        <label style="width: 100px;"><strong>Query<span class="required-star">*</span></strong></label>
+
+                        <div class="p-col">
+
+                          <textarea type="text" pInputText EmptyToNull pInputTextarea autocomplete="off"
+                            autocomplete="nope" [rows]="3" formControlName="query" #departmentDisplayName>
+                                        </textarea>
+                          <ui-validation-message [control]="_form.get('query')" *ngIf="_formSubmitAttempt == true">
+                          </ui-validation-message>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+                
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </form>
+
+</div>

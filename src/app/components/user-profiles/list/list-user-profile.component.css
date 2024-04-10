@@ -1,0 +1,5 @@
+:host ::ng-deep .p-toolbar.toolbar-user-profile-list {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  background-color: #ffffff;
+}

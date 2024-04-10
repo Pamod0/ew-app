@@ -1,0 +1,201 @@
+<div
+    class="flex justify-content-center align-items-center"
+    style="height: 100vh"
+>
+    <div class="card" style="margin: 20px 180px; ">
+        <h1 class="fs-2 text-center font-bold mt-4 mb-4">
+            Register Community / Individual Account
+        </h1>
+        <div class="grid">
+            <div
+                class="lg:col-6 md:col-6 sm:col-12 flex justify-content-end align-items-end"
+            >
+                <div class="flex justify-content-center">
+                    <form [formGroup]="registerForm">
+                        <div
+                            class="card flex justify-content-center border-none"
+                        >
+                            <div class="flex gap-3 flex-column">
+                                <span class="fs-4 font-normal"
+                                    >Community or Individual?</span
+                                >
+                                <div class="flex">
+                                    <div
+                                        *ngFor="let userType of userTypes"
+                                        class="field-checkbox pr-6"
+                                    >
+                                        <p-radioButton
+                                            [inputId]="userType.key"
+                                            [value]="userType"
+                                            formControlName="selectedUserType"
+                                        ></p-radioButton>
+                                        <label
+                                            [for]="userType.key"
+                                            class="ml-2 fs-5"
+                                            >{{ userType.name }}</label
+                                        >
+                                    </div>
+                                </div>
+                                <div>
+                                    <label
+                                        for="name"
+                                        class="mb-1 fs-4 font-normal"
+                                    >
+                                        Community / Individual name </label
+                                    ><br />
+                                    <input
+                                        type="text"
+                                        pInputText
+                                        formControlName="name"
+                                        class="mb-3 p-inputtext-lg"
+                                        style="
+                                            width: 15vw;
+                                            border: 2px solid #1565d8;
+                                        "
+                                    /><br />
+                                    <label
+                                        for="address"
+                                        class="mb-1 fs-4 font-normal"
+                                    >
+                                        Address </label
+                                    ><br />
+                                    <input
+                                        type="text"
+                                        pInputText
+                                        formControlName="address"
+                                        style="
+                                            width: 15vw;
+                                            border: 2px solid #1565d8;
+                                        "
+                                        class="mb-3 p-inputtext-lg"
+                                    />
+                                    <br />
+                                    <label
+                                        for="password"
+                                        class="mb-1 fs-4 font-normal"
+                                    >
+                                        District </label
+                                    ><br />
+                                    <p-dropdown
+                                        formControlName="district"
+                                        [options]="districts"
+                                        optionLabel="name"
+                                        placeholder="Select the district"
+                                        [style]="{
+                                            width: '350px',
+                                            border: '2px solid #1565d8',
+                                            borderRadius: '6px',
+                                            height: '40px',
+                                        }"
+                                    ></p-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div
+                class="lg:col-6 md:col-6 sm:col-12 flex justify-content-start align-items-end"
+            >
+                <div class="flex justify-content-center">
+                    <form [formGroup]="registerForm">
+                        <label
+                            for="contactPersonName"
+                            class="mb-1 fs-4 font-normal"
+                        >
+                            Contact Person Name </label
+                        ><br />
+                        <input
+                            type="text"
+                            pInputText
+                            formControlName="address"
+                            style="width: 15vw; border: 2px solid #1565d8"
+                            class="mb-3 p-inputtext-lg"
+                        />
+                        <br />
+                        <label for="phoneNumber" class="mb-1 fs-4 font-normal">
+                            Phone Number </label
+                        ><br />
+                        <input
+                            type="phone"
+                            pInputText
+                            formControlName="phoneNumber"
+                            style="width: 15vw; border: 2px solid #1565d8"
+                            class="mb-3 p-inputtext-lg"
+                        />
+                        <br />
+                        <label for="Email" class="mb-1 fs-4 font-normal">
+                            Email Address </label
+                        ><br />
+                        <input
+                            type="email"
+                            pInputText
+                            formControlName="email"
+                            class="mb-3 p-inputtext-lg"
+                            style="width: 15vw; border: 2px solid #1565d8"
+                        /><br />
+                        <label for="password" class="mb-1 fs-4 font-normal">
+                            Password </label
+                        ><br />
+                        <input
+                            type="password"
+                            pInputText
+                            formControlName="password"
+                            style="width: 15vw; border: 2px solid #1565d8"
+                            class="mb-3 p-inputtext-lg"
+                        />
+                    </form>
+                </div>
+            </div>
+            <div class="col-12">
+                <div
+                    [formGroup]="registerForm"
+                    class="flex justify-content-center"
+                >
+                    <p-checkbox
+                        formControlName="termsAndConditionsCheck"
+                        value="New York"
+                        inputId="ny"
+                        class="mr-3"
+                    ></p-checkbox>
+                    <label for="termsAndConditonsCheck" class="fs-4 font-normal"
+                        >I agree to terms and conditions</label
+                    >
+                </div>
+            </div>
+            <div class="col-12">
+                <div
+                    [formGroup]="registerForm"
+                    class="flex justify-content-center gap-4"
+                >
+                    <button
+                        style="
+                            border: 1px white solid;
+                            border-radius: 7px;
+                            padding: 10px 40px 10px 40px;
+                            width: 120px;
+                            font-size: 16px;
+                            font-weight: 600;
+                            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+                        "
+                    >
+                        Clear
+                    </button>
+                    <button
+                        style="
+                            border: #006ab9 1px solid;
+                            border-radius: 7px;
+                            background-color: #006ab9;
+                            color: #ffffff !important;
+                            width: 120px;
+                            font-size: 16px;
+                            font-weight: 600;
+                        "
+                    >
+                        Register
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
