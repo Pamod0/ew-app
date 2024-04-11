@@ -1,0 +1,10 @@
+  :host ::ng-deep .p-toolbar.toolbar-event-type-list {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    background-color: #ffffff;
+  }
+  .p-field.p-grid > label {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }

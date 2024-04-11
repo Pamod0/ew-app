@@ -1,0 +1,152 @@
+<div class="custom-card p-shadow-3">
+
+    <div class="custom-toolbar-card">
+        <p-toolbar styleClass="toolbar-view-new-user">
+            <div class="p-toolbar-group-left">
+                <span style="padding-left: 0.7rem; font-weight: 500;">{{ _pageTitle }} {{ _pageSubTitle}}</span>
+            </div>
+
+            <div class="p-toolbar-group-right">
+                <button pButton pRipple type="button" icon="fas fa-lg fa-times" (click)="close()"
+                    class="p-button-danger app-mt-2 app-ml-5 app-mb-2 app-mr-3"></button>
+            </div>
+        </p-toolbar>
+    </div>
+
+    <form [formGroup]="_form">
+
+        <div class="custom-data-section">
+
+            <div class="p-col-12 app-p-0">
+
+                <div class="p-grid p-fluid">
+
+                    <div class="p-col-fixed app-p-0">
+
+                        <div class="custom-data-section" style="width: 450px; background-color: #ffffff;">
+
+                            <div class="custom-data-sub-section">
+
+                                <div class="p-col-12 app-pt-8 app-pb-0">
+
+                                    <div class="p-grid">
+
+                                        <div class="p-col-12 p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width: 100px"><strong>Status<span
+                                                            class="required-star">*</span></strong></label>
+                                                 <div class="p-col-6">
+                                                   <p-dropdown [options]="_recordStatusList"
+                                                        formControlName="recordStatusId" optionLabel="label"
+                                                        #recordStatusId></p-dropdown>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                
+
+                                <div class="p-col-12 app-pt-5 app-pb-0">
+                                    <div class="p-grid">
+                                        <div class="p-col-12 p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width: 100px;"><strong>First Name<span
+                                                            class="required-star">*</span></strong></label>
+                                                <div class="p-col">
+                                                    <input type="text" class="p-inputtext-sm" pInputText
+                                                        formControlName="firstName" 
+                                                        
+                                                         #attorneyFirstName /> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <div class="p-col-12 app-pt-5 app-pb-0">
+                                    <div class="p-grid">
+                                        <div class="p-col-12 p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width: 100px;"><strong>Last Name<span
+                                                            class="required-star">*</span></strong></label>
+                                                <div class="p-col">
+                                                    <input type="text" class="p-inputtext-sm" pInputText
+                                                        formControlName="lastName" 
+                                                        
+                                                         #attorneyLastName /> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="p-col-12 app-pt-5 app-pb-0">
+                                    <div class="p-grid">
+                                        <div class="p-col-12 p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width: 100px;"><strong>Email<span
+                                                            class="required-star">*</span></strong></label>
+                                                <div class="p-col">
+                                                    <input type="text" class="p-inputtext-sm" pInputText
+                                                        formControlName="email" #attorneyEmail />
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12 app-pt-5 app-pb-0">
+                                    <div class="p-grid">
+                                        <div class="p-col-12 p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width: 100px;"><strong>Phone<span
+                                                            class="required-star">*</span></strong></label>
+                                                <div class="p-col">
+                                                    <input type="text" class="p-inputtext-sm" pInputText
+                                                        formControlName="phone" #attorneyPhone />
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                               <!-- <div class="p-col-12 app-pt-5 app-pb-0">
+                                    <div class="p-grid">
+                                        <div class="p-col-12 p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width: 100px;"><strong>Insurance<span
+                                                            class="required-star">*</span></strong></label>
+                                                <div class="p-col">
+                                                    <input type="text" class="p-inputtext-sm" pInputText
+                                                        formControlName="insurance"  #attorneyInsurance />
+                                                  
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  -->                      
+                                <div class="p-col-12 app-pt-5 app-pb-0"> </div>
+      
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</div>

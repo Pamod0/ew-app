@@ -1,0 +1,160 @@
+<div class="p-grid">
+
+    <div class="p-col-12">
+
+        <div class="p-fluid">
+
+            <div class="custom-list-card">
+
+                <div class="custom-toolbar-card">
+
+                    <p-toolbar styleClass="toolbar-newUsers-list">
+
+                        <div class="p-toolbar-group-left">
+                            <span style="padding-left: 0.7rem; font-weight: 500;">{{ _pageTitle }} {{
+                                _pageSubTitle}}</span>
+                            <button pButton pRipple type="button" label="New" icon="fas fa-plus"
+                                class="app-mt-3 p-ml-4 app-mb-1" (click)="create()" pTooltip="New"></button>
+                        </div>
+
+                        <div class="p-toolbar-group-right">
+                            <button pButton pRipple type="button" icon="fas fa-times"
+                                class="p-button-danger app-mt-3 app-ml-5 app-mb-2 app-mr-5" (click)="close()"
+                                pTooltip="Close" tooltipPosition="left"></button>
+                        </div>
+                    </p-toolbar>
+
+                </div>
+
+                <div class="custom-data-section">
+
+                    <form [formGroup]="_form">
+
+                        <p-table [value]="_list" [totalRecords]="_totalRecords" [lazy]="true"
+                            [(selection)]="_selectedRow" dataKey="id"
+                            styleClass="p-datatable-gridlines p-datatable-striped" selectionMode="single"
+                            responsiveLayout="stack" [paginator]="_list?.length > 0" paginatorPosition="bottom" [rows]="10"
+                            (onLazyLoad)="onLazyLoad($event)" #newUserTable>
+
+                            <ng-template pTemplate="caption">
+                                <div class="p-col-12 app-p-3">
+                                    <div class="p-inputgroup">
+                                        <span class="p-input-icon-right">
+                                            <input type="text" pInputText class="p-inputtext-sm"
+                                                formControlName="keyword" (keyup)="onSearchKeyUp($event)" #keyword />
+                                            <i class="fas fa-times" (click)="clearSearch()"></i>
+                                        </span>
+
+                                        <button pButton pRipple type="button" style="border-radius: 3px;"
+                                        class="app-ml-5" icon="pi pi-search" label="Search"
+                                        (click)="onRegularSearchClick()" pTooltip="Search" tooltipPosition="left"></button>
+                                    </div>
+                                </div>
+
+                            </ng-template>
+                            <ng-template pTemplate="header" let-columns>
+                                <tr>
+                                    <th style="width: 11%;">Actions</th>
+                                    <th style="width: 5%; display: none;">ID</th>
+                                    <th style="width: 10%;">Client</th>
+                                    <th style="width: 10%;">Company</th>
+                                    <th style="width: 10%;">First Name</th>
+                                    <th style="width: 10%;">Last Name</th>
+                                    <th style="width: 15%;">Phone</th>
+                                    <th style="width: 10%;">Email</th>
+                                    <th style="width: 10%;">User Type</th>
+                                    <th style="width: 10%;">User Group</th>
+                                    <th style="width: 10%;">Password</th>
+                                    <!-- //<th style="width: 15%;">STATUS</th> -->
+
+
+                                </tr>
+                            </ng-template>
+
+                            <ng-template pTemplate="body" let-rowData let-columns="columns" let-expanded="expanded">
+
+                                <tr [pSelectableRow]="rowData">
+
+                                    <td class="app-p-2">
+                                        <span class="p-column-title">Actions</span>
+                                        <button pButton pRipple type="button" icon="fas fa-eye" (click)="view(rowData)" style="margin-right: 10px;"
+                                            pTooltip="View"></button>
+
+                                        <button pButton pRipple type="button" icon="fas fa-edit" (click)="edit(rowData)"
+                                            class="app-ml-5" pTooltip="Edit"></button>
+
+                                            <!-- <button pButton pRipple type="button" 
+                                            label="Send Login Details"
+                                            class="p-button-raised p-button-secondary"
+                                            pTooltip="Send Login Details"
+                                            [style]="{ height: '24px !important', 'margin-bottom': '3px' ,'margin-left':'5px'}"
+                                            (click)="sendLoginDetails(rowData)"></button>    -->
+                                    </td>
+
+                                    <td style="display: none;">
+                                        <span class="p-column-title">ID</span>
+                                        {{ rowData.id }}
+                                    </td>
+                                    <td>
+                                        <span class="p-column-title">Client</span>
+                                        {{ rowData.clientId }} 
+                                    </td>
+                                    <td>
+                                        <span class="p-column-title">Company</span>
+                                        {{ rowData.companyId }} 
+                                    </td>
+                                    <td>
+                                        <span class="p-column-title">First Name</span>
+                                        {{ rowData.firstName }} 
+                                    </td>
+
+                                    <td>
+                                        <span class="p-column-title">Last Name</span>
+                                        {{ rowData.lastName }} 
+                                    </td>
+
+                                    <td
+                                        [ngClass]="{'disable': rowData?.phone == null || rowData?.phone?.length == 0}">
+                                        <span class="p-column-title">Phone</span>
+                                        {{ rowData.phone }}
+                                    </td>
+                                    
+                                    <td
+                                        [ngClass]="{'disable': rowData?.email == null || rowData?.email?.length == 0}">
+                                        <span class="p-column-title">Email</span>
+                                        {{ rowData.email }}
+                                    </td>
+
+                                    <td>
+                                        <span class="p-column-title">User Type</span>
+                                        {{ rowData.usersTypeId }} 
+                                    </td>
+
+                                    <td>
+                                        <span class="p-column-title">User Group</span>
+                                        {{ rowData.userGroupId }} 
+                                    </td>
+
+                                    <td>
+                                        <span class="p-column-title">Password</span>
+                                        {{ rowData.password }} 
+                                    </td>
+                                    <!-- <td
+                                        [ngClass]="{'disable': rowData?.recordStatusId == null || rowData?.recordStatusId?.length == 0}">
+                                        <span class="p-column-title">Status</span>
+                                        {{rowData.recordStatusId | enumAsString:_recordStatus}}
+                                    </td> -->
+
+                                </tr>
+                            </ng-template>
+                        </p-table>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

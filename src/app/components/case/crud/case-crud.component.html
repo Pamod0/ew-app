@@ -1,0 +1,118 @@
+
+
+<div class="grid">
+    <div class="col-6" style="font-size: 20px; font-weight: bold;padding-left: 2rem;">New Case</div>
+
+    <div class="col-2">
+        <button pButton pRipple label="Clear" class="custom-button" style="padding:5px 5px;" icon="pi pi-refresh" (click)="reset()"></button>
+    </div>
+    
+    <div class="col-2">
+        <button pButton pRipple label="Save" class="custom-button" style="padding:5px 5px;" icon="pi pi-save" (click)="saveCase()"></button>
+    </div>
+
+    <div class="col-2">
+        <button pButton pRipple label="Close" class="custom-button" style="padding:5px 5px;" icon="pi pi-times" (click)="closeSidebar($event)"></button>
+    </div>
+</div>
+<form [formGroup]="_form" >
+    <div class="grid p-fluid" [style.height]=" 'calc(' + _innerHeight + ' - 150px)' " style="overflow: auto;">
+        <div class="col-12 md:col-12">
+            <div class="card">
+                <div class="field">
+                    <label>Case Type<span class="required">*</span></label>
+                    <div>
+                        <p-dropdown   
+                                    formControlName="caseTypeId" 
+                                    [options]="kaseTypes"
+                                    (onChange)="onFocusDropDown($event)">
+                        </p-dropdown>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>File No<span class="required">*</span></label>
+                    <input style="border-radius: 7px;" pInputText type="text" formControlName="fileNumber">
+                </div>
+                <div>
+                    <div class="col-9 flex validator-alert">
+                        <ui-validation-message [control]="_form.get('fileNumber')" *ngIf="_formSubmitAttempt == true">
+                        </ui-validation-message>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Case No<span class="required">*</span></label>
+                    <div>
+                        <input style="border-radius: 7px;" pInputText type="text" formControlName="caseNumber">
+                    </div>
+                </div>
+                <div>
+                    <div class="col-9 flex validator-alert">
+                        <ui-validation-message [control]="_form.get('caseNumber')" *ngIf="_formSubmitAttempt == true">
+                        </ui-validation-message>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Applicant First Name<span class="required">*</span></label>
+                    <div>
+                        <input style="border-radius: 7px;" pInputText type="text" formControlName="applicantFirstName">
+                    </div>
+                </div>
+                <div>
+                    <div class="col-9 flex validator-alert">
+                        <ui-validation-message [control]="_form.get('applicantFirstName')"
+                            *ngIf="_formSubmitAttempt == true">
+                        </ui-validation-message>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Applicant Last Name<span class="required">*</span></label>
+                    <div>
+                        <input style="border-radius: 7px;" pInputText type="text" formControlName="applicantLastName">
+                    </div>
+                </div>
+                <div>
+                    <div class="col-9 flex validator-alert">
+                        <ui-validation-message [control]="_form.get('applicantLastName')"
+                            *ngIf="_formSubmitAttempt == true">
+                        </ui-validation-message>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Attorney Responsible<span class="required">*</span></label>
+                    <div>
+                        <p-dropdown   
+                                    formControlName="attorneyResponsibleId" 
+                                    [options]="attorneyList"
+                                    (onChange)="onFocusDropDown($event)">
+                        </p-dropdown>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Upload and attach Files</label>
+                    <div class="card file-upload-box" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
+                        <div class="upload-container">
+                            <i class="pi pi-cloud-upload upload-icon"></i>
+                            <div class="upload-link">
+                                <span (click)="fileInput.click()">Drag &amp; Drop files here or</span>
+                                <span (click)="fileInput.click()">  click to upload</span>
+                                <input #fileInput type="file" style="display: none;" (change)="onFileSelected($event)" multiple>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+                <div class="field card file-uploaded-box"  *ngFor="let file of selectedFilesInfo; let i = index">
+                    <div class="uploaded-container" >
+                        <div class="flex">
+                            <img style="padding: 3px;" [src]="file.iconUrl" alt="File Icon" width="50">
+                            <p style="padding: 1rem 0rem;">{{ file.name }} - {{ file.size }} bytes</p>
+                            <div class="col-2">
+                                <button *ngIf="!file.selected" pButton pRipple class="custom-button" style="padding:5px 5px;" icon="pi pi-times" (click)="removeFile(i)"></button>
+                            </div> 
+                        </div>
+                    </div>
+                </div>           
+                
+            </div>
+        </div>
+    </div>
+</form>

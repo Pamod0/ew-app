@@ -1,0 +1,127 @@
+<div class="custom-card p-shadow-3">
+
+    <div class="custom-toolbar-card">
+        <p-toolbar styleClass="toolbar-view-user-group">
+            <div class="p-toolbar-group-left">
+                <span style="padding-left: 0.7rem; font-weight: 500;">{{ _pageTitle }} {{ _pageSubTitle}}</span>
+            </div>
+
+            <div class="p-toolbar-group-right">
+                <button pButton pRipple type="button" icon="fas fa-lg fa-times" (click)="close()"
+                    class="p-button-danger app-mt-2 app-ml-5 app-mb-2 app-mr-3"></button>
+            </div>
+        </p-toolbar>
+    </div>
+
+    <form [formGroup]="_form">
+
+        <div class="custom-data-section">
+
+            <div class="p-col-12 app-p-0">
+
+                <div class="p-grid p-fluid">
+
+                    <div class="p-col-fixed app-p-0">
+
+                        <div class="custom-data-section" style="width: 450px; background-color: #ffffff;">
+
+                            <div class="custom-data-sub-section">
+
+                                <div class="p-col-12 app-pt-8 app-pb-0">
+
+                                    <div class="p-grid">
+
+                                        <div class="p-col-6 p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width: 100px"><strong>Code<span
+                                                            class="required-star">*</span></strong></label>
+                                                <div class="p-col-4">
+                                                    <input type="text" pInputText class="p-inputtext-sm"
+                                                        formControlName="code" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="p-col-1 p-pt-0 p-pb-0"></div>
+
+                                        <div class="p-col-5 p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width: 60px"><strong>Status<span
+                                                            class="required-star">*</span></strong></label>
+                                                <div class="p-col app-pl-0">
+                                                    <p-dropdown [options]="_recordStatusList"
+                                                        formControlName="recordStatusId" optionLabel="label"
+                                                        #recordStatusId></p-dropdown>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12 app-pt-5 app-pb-0">
+                                    <div class="p-grid">
+                                        <div class="p-col-12 p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width: 100px;"><strong>Description
+                                                        <span class="required-star">*</span></strong></label>
+                                                <div class="p-col">
+
+                                                    <textarea type="text" pInputText [rows]="3"
+                                                        formControlName="description">
+                                    </textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12 app-pt-2 app-pb-3">
+                                    <div class="p-grid">
+                                        <div class="p-col-12 p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width: 100px;"><strong>Policies
+                                                        <span class="required-star">*</span></strong></label>
+                                                <div class="p-col">
+
+                                                    <p-table [value]="_policies" [columns]="_tableColumns"
+                                                        styleClass="p-datatable-gridlines p-datatable-striped"
+                                                        dataKey="value" responsiveLayout="stack" [scrollable]="true"
+                                                        scrollHeight="175px" [style]="{ height: '185px' }">
+
+                                                        <ng-template pTemplate="header" let-columns>
+                                                            <tr>
+                                                                <th style="flex: 0 0 20%;">Id</th>
+                                                                <th style="flex: 0 0 80%;">Name</th>
+                                                            </tr>
+                                                        </ng-template>
+
+                                                        <ng-template pTemplate="body" let-policy>
+                                                            <tr [pSelectableRow]="policy">
+                                                                <td style="flex: 0 0 20%;">{{ policy?.id }}</td>
+                                                                <td style="flex: 0 0 80%;">{{ policy?.name }}</td>
+                                                            </tr>
+                                                        </ng-template>
+                                                    </p-table>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</div>

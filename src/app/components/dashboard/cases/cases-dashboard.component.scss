@@ -1,0 +1,27 @@
+.cardHdng {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #010101;
+    margin-left: 10px;
+}
+
+.table-container {
+    width: 100%;
+}
+
+:host ::ng-deep .p-sidebar-right {
+    top: 65px;
+    right: 0;
+    width: 483px;
+    height: 95%;
+    font-size: 14px;
+}
+
+:host ::ng-deep .p-sidebar-content {
+    position: relative;
+    overflow-y: hidden;
+    flex-grow: 1;
+}

@@ -1,0 +1,45 @@
+
+<div class="grid" [ngClass]="{ 'hide-scroll': sidebarVisible }" style="overflow-y: hidden;">
+    <div class="col-6"><i class="pi pi-briefcase" style="color:#FFA51F; font-size: 30px;"></i> <span
+            class="cardHdng">Open cases</span></div>
+    <div class="col-6" style="text-align: right;">
+        <button pButton pRipple label="Open a Case" icon="pi pi-plus"  (click)="createCase()"
+        class="btnCard" style="background: #FFA51F"></button>
+    </div>
+
+    <div class="table-container">
+        <p-table #dt [value]="caseLists" scrollHeight="calc({{_innerHeight}} - 380px)"
+            columnResizeMode="expand"
+            [tableStyle]="{ 'min-width': '30rem','border-color': 'blue'}"
+            style="border-color: blue;margin-left: 10px;" dataKey="id" [rowHover]="true"
+            [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10, 25, 50]"
+            [paginator]="true"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+
+            <ng-template pTemplate="caption">
+                <div class="header-content">
+                </div>
+            </ng-template>
+
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Case No</th>
+                    <th>Type</th>
+                    <th>Applicant Name</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-caseLists>
+                <tr>
+                    <td>{{ caseLists.caseno }}</td>
+                    <td>{{ caseLists.type }}</td>
+                    <td>{{ caseLists.applicantName }}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+
+<p-sidebar #sidebar [(visible)]="sidebarVisible" class="p-sidebar-right" [showCloseIcon]="false"
+ position="right" [modal]="true" >
+    <app-case-crud></app-case-crud>
+</p-sidebar>

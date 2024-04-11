@@ -1,0 +1,299 @@
+<div class="custom-card p-shadow-3">
+
+    <div class="custom-toolbar-card">
+        <p-toolbar styleClass="toolbar-view-user-profile">
+            <div class="p-toolbar-group-left">
+                <span style="padding-left: 0.7rem; font-weight: 500;">{{ _pageTitle }} {{ _pageSubTitle}}</span>
+            </div>
+            <div class="p-toolbar-group-right">
+
+                <button pButton pRipple type="button" icon="fas fa-lg fa-times"
+                    class="p-button-danger app-mt-3 app-ml-5 app-mb-2 app-mr-5" (click)="close()"
+                    pTooltip="Close"></button>
+
+            </div>
+        </p-toolbar>
+    </div>
+
+    <form [formGroup]="_form">
+
+        <div class="custom-data-section" style="background-color: #ffffff;">
+
+            <div class="p-col-12 app-p-0">
+
+                <div class="p-grid p-fluid">
+
+                    <div class="p-col-fixed app-p-1">
+
+                        <div class="custom-data-section app-p-1" style="width: 500px;">
+
+                            <div class="custom-data-sub-section app-mt-1 app-mb-1">
+
+                                <!--FirstName-->
+                                <div class="p-col-12 app-pt-5 app-pb-0">
+                                    <div class="p-grid">
+                                        <div class="p-col-8 p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width:100px"><strong>First Name
+                                                        <span class="required-star">*</span></strong></label>
+                                                <div class="p-col">
+                                                    <input type="text" class="p-inputtext-sm"
+                                                        formControlName="firstName" pInputText maxlength="50"
+                                                        #firstName>
+                                                    <ui-validation-message [control]="_form.get('firstName')"
+                                                        *ngIf="_formSubmitAttempt == true">
+                                                    </ui-validation-message>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-col-4 p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width:45px"><strong>
+                                                        Status<span class="required-star">*</span></strong></label>
+                                                <div class="p-col">
+                                                    <p-dropdown [options]="_recordStatus"
+                                                        formControlName="recordStatusId" optionLabel="label"
+                                                        optionValue="value" #recordStatusId></p-dropdown>
+                                                    <ui-validation-message [control]="_form.get('recordStatusId')">
+                                                    </ui-validation-message>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--LastName-->
+                                <div class="p-col-12 app-pt-5 app-pb-0">
+                                    <div class="p-grid">
+                                        <div class="p-col-8  p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width:100px"><strong>Last Name
+                                                        <span class="required-star">*</span></strong></label>
+                                                <div class="p-col">
+                                                    <input type="text" class="p-inputtext-sm" formControlName="lastName"
+                                                        pInputText maxlength="50">
+                                                    <ui-validation-message [control]="_form.get('lastName')"
+                                                        *ngIf="_formSubmitAttempt == true">
+                                                    </ui-validation-message>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--Initials-->
+                                <div class="p-col-12 app-pt-5 app-pb-0">
+                                    <div class="p-grid">
+                                        <div class="p-col-8  p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width:100px"><strong>Initial
+                                                    </strong></label>
+                                                <div class="p-col">
+                                                    <input type="text" class="p-inputtext-sm" formControlName="initials"
+                                                        pInputText maxlength="10" #initials>
+                                                    <ui-validation-message [control]="_form.get('initials')"
+                                                        *ngIf="_formSubmitAttempt == true">
+                                                    </ui-validation-message>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--Title-->
+                                <div class="p-col-12 app-pt-5 app-pb-0">
+                                    <div class="p-grid">
+                                        <div class="p-col-12  p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width:100px"><strong>Title
+                                                    </strong></label>
+                                                <div class="p-col">
+                                                    <input type="text" formControlName="title" pInputText
+                                                        maxlength="100">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--LoginId-->
+                                <div class="p-col-12 app-pt-5 app-pb-0">
+                                    <div class="p-grid">
+                                        <div class="p-col-8 p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width:100px"><strong>Login ID
+                                                        <span class="required-star">*</span></strong></label>
+                                                <div class="p-col">
+                                                    <input type="text" class="p-inputtext-sm" formControlName="loginId"
+                                                        pInputText maxlength="100" #loginId>
+                                                    <ui-validation-message [control]="_form.get('loginId')"
+                                                        *ngIf="_formSubmitAttempt == true">
+                                                    </ui-validation-message>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--Password-->
+                                <!-- <div class="p-col-12  app-pt-1 app-pb-0">
+                                    <div class="p-grid">
+                                        <div class="p-col-8  p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width:100px"><strong>Password
+                                                        <span class="required-star">*</span></strong></label>
+                                                <div class="p-col">
+                                                    <p-password [toggleMask]="true" [feedback]="true" maxlength="100"
+                                                        mediumRegex="^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})."
+                                                        formControlName="password">
+                                                    </p-password>
+                                                    <ui-validation-message [control]="_form.get('password')"
+                                                        *ngIf="_formSubmitAttempt == true">
+                                                    </ui-validation-message>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+
+                                <!--PasswordVerify-->
+                                <!-- <div class="p-col-12  app-pt-1 app-pb-0">
+                                    <div class="p-grid">
+                                        <div class="p-col-8  p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width:100px"><strong>Re Enter Password
+                                                        <span class="required-star">*</span></strong></label>
+                                                <div class="p-col">
+                                                    <p-password formControlName="confirmPassword" [feedback]="false">
+                                                    </p-password>
+                                                    <ui-validation-message [control]="_form.get('confirmPassword')"
+                                                        *ngIf="_formSubmitAttempt == true">
+                                                    </ui-validation-message>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+
+                                <div class="p-col-12  app-pt-5 app-pb-0">
+                                    <div class="p-grid">
+                                        <div class="p-col-12  p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width:100px"><strong>E-Mail
+                                                    </strong></label>
+                                                <div class="p-col">
+                                                    <input type="text" formControlName="email" pInputText
+                                                        maxlength="100" #email>
+                                                    <ui-validation-message [control]="_form.get('email')"
+                                                        *ngIf="_formSubmitAttempt == true">
+                                                    </ui-validation-message>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--Phone-->
+                                <div class="p-col-12 app-pt-5 app-pb-0">
+                                    <div class="p-grid">
+                                        <div class="p-col-8  p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width:100px"><strong>Phone
+                                                    </strong></label>
+                                                <div class="p-col">
+                                                    <p-inputMask class="p-inputtext-sm" formControlName="phone"
+                                                        mask="(999) 999-9999" #phone>
+                                                    </p-inputMask>
+                                                    <ui-validation-message [control]="_form.get('phone')"
+                                                        *ngIf="_formSubmitAttempt == true">
+                                                    </ui-validation-message>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-col-4  p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label class="p-pl-2" style="width:35px"><strong>Ext.
+                                                    </strong></label>
+                                                <div class="p-col">
+                                                    <input type="text" class="p-inputtext-sm"
+                                                        formControlName="extension" pInputText maxlength="10">
+                                                    <ui-validation-message [control]="_form.get('extension')"
+                                                        *ngIf="_formSubmitAttempt == true">
+                                                    </ui-validation-message>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--Fax-->
+                                <div class="p-col-12 app-pt-5 app-pb-3">
+                                    <div class="p-grid">
+                                        <div class="p-col-8  p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width:100px"><strong>Fax
+                                                    </strong></label>
+                                                <div class="p-col">
+                                                    <p-inputMask formControlName="fax" mask="(999) 999-9999" #fax>
+                                                    </p-inputMask>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--Type-->
+                                <div class="p-col-12 app-pt-2 app-pb-3">
+                                    <div class="p-grid">
+                                        <div class="p-col-8  p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width:100px"><strong>Type
+                                                    </strong></label>
+                                                <div class="p-col">
+                                                    <p-dropdown [options]="_userTypeList" formControlName="typeId"
+                                                        optionLabel="label" optionValue="value" #typeId></p-dropdown>
+                                                    <ui-validation-message [control]="_form.get('typeId')"
+                                                        *ngIf="_formSubmitAttempt == true">
+                                                    </ui-validation-message>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--UserGroupPolicy-->
+                                <div class="p-col-12  app-pt-2 app-pb-8">
+                                    <div class="p-grid">
+                                        <div class="p-col-8  p-pt-0 p-pb-0">
+                                            <div class="p-field p-grid">
+                                                <label style="width: 100px"><strong>User Group
+                                                        <span class="required-star">*</span></strong></label>
+                                                <div class="p-col">
+
+                                                    <p-dropdown [options]="_userGroupDropdownList"
+                                                        formControlName="userGroupId" optionLabel="label"
+                                                        optionValue="value" #userGroupId></p-dropdown>
+                                                    <ui-validation-message [control]="_form.get('userGroupId')"
+                                                        *ngIf="_formSubmitAttempt == true">
+                                                    </ui-validation-message>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </form>
+
+</div>

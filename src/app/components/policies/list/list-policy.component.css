@@ -1,0 +1,9 @@
+:host ::ng-deep .p-toolbar.toolbar-policy-list {
+  background-color: #e0e0e0;
+}
+
+:host ::ng-deep .p-toolbar {
+  background: transparent;
+  border: 0px !important;
+  padding: 0;
+}

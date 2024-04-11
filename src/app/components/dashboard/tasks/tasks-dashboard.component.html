@@ -1,0 +1,117 @@
+<div class="grid">
+    <div class="col-6 mb-3"><i class="pi pi-bookmark-fill" style="color:#2F5CFA; font-size: 30px;"></i>
+        <span class="cardHdng">Tasks</span>
+    </div>
+    <div class="col-6 mb-3" style="text-align: right;">
+        <button pButton pRipple label="Create a Task" icon="pi pi-plus" class="btnCard" style="background: #2F5CFA"></button>
+    </div>
+    <div class="col-12">
+        <p-tabView styleClass="tabview-custom">
+            <p-tabPanel>
+                <ng-template pTemplate="header">
+                    <span>Upcoming <p-badge [value]="25" severity="info"></p-badge></span>
+                </ng-template>
+                <div class="table-container">
+                    <p-table #dt [value]="taskLists" scrollHeight="calc({{_innerHeight}} - 430px)"
+                        columnResizeMode="expand"
+                        [tableStyle]="{ 'min-width': '30rem','border-color': 'blue'}"
+                        dataKey="id" [rowHover]="true"
+                        [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10, 25, 50]"
+                        [paginator]="true"
+                        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+
+                        <ng-template pTemplate="caption">
+                            <div class="header-content">
+                            </div>
+                        </ng-template>
+
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>Case#</th>
+                                <th>Type</th>
+                                <th>Due Date</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-taskLists>
+                            <tr>
+                                <td>{{ taskLists.caseno }}</td>
+                                <td>{{ taskLists.type }}</td>
+                                <td>{{ taskLists.dueDate }}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </p-tabPanel>
+            <p-tabPanel header="Overdue">
+                <ng-template pTemplate="header">
+                    <span>Overdue <p-badge [value]="10" severity="danger"></p-badge></span>
+                </ng-template>
+                <div class="table-container">
+                    <p-table #dt [value]="taskLists" scrollHeight="calc({{_innerHeight}} - 430px)"
+                        columnResizeMode="expand"
+                        [tableStyle]="{ 'min-width': '30rem','border-color': 'blue'}"
+                        dataKey="id" [rowHover]="true"
+                        [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10, 25, 50]"
+                        [paginator]="true"
+                        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+
+                        <ng-template pTemplate="caption">
+                            <div class="header-content">
+                            </div>
+                        </ng-template>
+
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>Case#</th>
+                                <th>Type</th>
+                                <th>Due Date</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-taskLists>
+                            <tr>
+                                <td>{{ taskLists.caseno }}</td>
+                                <td>{{ taskLists.type }}</td>
+                                <td>{{ taskLists.dueDate }}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </p-tabPanel>
+            <p-tabPanel header="Incomplete">
+                <ng-template pTemplate="header">
+                    <span>Incomplete <p-badge [value]="05" severity="warning"></p-badge></span>
+                </ng-template>
+                <div class="table-container">
+                    <p-table #dt [value]="taskLists" scrollHeight="calc({{_innerHeight}} - 430px)"
+                        columnResizeMode="expand"
+                        [tableStyle]="{ 'min-width': '30rem','border-color': 'blue'}"
+                        dataKey="id" [rowHover]="true"
+                        [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10, 25, 50]"
+                        [paginator]="true"
+                        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+
+                        <ng-template pTemplate="caption">
+                            <div class="header-content">
+                            </div>
+                        </ng-template>
+
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>Case#</th>
+                                <th>Type</th>
+                                <th>Due Date</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-taskLists>
+                            <tr>
+                                <td>{{ taskLists.caseno }}</td>
+                                <td>{{ taskLists.type }}</td>
+                                <td>{{ taskLists.dueDate }}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+</div>

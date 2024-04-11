@@ -77,7 +77,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                         }`;
                     }
                     if (error.status == 401) {
-                        this.router.navigate([`/authentication/login`]);
+                        this.router.navigate([`/home`]);
                     }
                 }
                 //  window.alert(errorMessage);

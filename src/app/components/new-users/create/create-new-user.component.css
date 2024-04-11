@@ -1,0 +1,7 @@
+:host ::ng-deep .p-toolbar.toolbar-event-type-create {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  background-color: #ffffff;
+  border: 0px;
+  border-bottom: 1px solid #bbbbbb;
+}

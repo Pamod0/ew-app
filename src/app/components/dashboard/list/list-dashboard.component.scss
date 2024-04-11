@@ -1,0 +1,173 @@
+:host ::ng-deep .p-paginator {
+    justify-content: right;
+}
+
+:host ::ng-deep .p-dialog .p-dialog-header .p-dialog-header-icon:last-child {
+    display: none;
+}
+
+:host ::ng-deep .p-dialog .p-dialog-header {
+    border-bottom: 0 none;
+    background: #ffffff;
+    color: #495057;
+    padding: 0rem;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+:host ::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus{
+    box-shadow: none !important;
+}
+
+:host ::ng-deep .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-focus{
+    box-shadow: none !important;
+}
+.descrp {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #010101;
+}
+
+.spnDescrption {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.cardDash {
+    height: 665px;
+    box-shadow: 2px 2px 10px 1px #0000000D;
+    border: none;
+}
+.hdrSample {
+    width: 100%;
+    height: 108px;
+    margin-bottom: 20px;
+}
+
+// .cardEvnt {
+//     width:49%;
+//     height: 640px;
+//     background: #ffffff;
+//     border-radius: 6px;
+//     box-shadow: 2px 2px 10px 1px #0000000D;
+// }
+
+.cardHdng {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:#010101;
+    margin-left: 10px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0rem 0rem;
+    padding-top: 0;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+}
+.p-calendar .p-datepicker {
+    width: 634px !important; /* Set the desired width */
+  }
+
+.btnCard{
+    color:#ffffff; 
+    font-size:16px; 
+    font-weight:500; 
+    border: none;
+}
+
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem;
+    padding-bottom: 0rem;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+}
+
+:host ::ng-deep .layout-wrapper .layout-content {
+    padding: 45px 18px 0 18px !important;
+}
+
+.margingmb-4 {
+    margin-bottom: -2rem !important;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.table-container {
+    flex: 1;
+    width: 100%;
+}
+
+.add-new-form {
+    width: 50%;
+    /* Adjust width according to your layout */
+    background-color: #f3f3f3;
+    padding-top: 0.1rem;
+    margin-left: 20px;
+    /* Spacing between table and form */
+}
+
+.draggable-border {
+    border-right: 2px solid #ccc;
+    padding-right: 10px;
+    /* Add padding to make the border area clickable */
+    cursor: col-resize;
+    /* Set cursor to indicate the element is draggable horizontally */
+}
+
+:host ::ng-deep .p-datatable .p-datatable-header {
+    padding-top: 0 !important;
+}
+
+.custom-success-button {
+    background-color: #D5EFEC !important;
+    color: #179988 !important;
+    border: none !important;
+    border-radius: 5px !important;
+}
+
+.custom-danger-button {
+    background-color: #EFD5D5 !important;
+    color: #991717 !important;
+    border: none !important;
+    border-radius: 5px !important;
+}
+
+.custom-static-col {
+    flex: 0 0 auto;
+    padding: 0rem 0rem;
+    width: 30%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.custom-static-row {
+    flex: 0 0 auto;
+    width: 100%;
+    padding: 1rem 0rem;
+    padding-left: 0.5rem;
+}

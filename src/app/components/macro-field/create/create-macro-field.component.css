@@ -1,0 +1,8 @@
+:host ::ng-deep .p-toolbar.toolbar-macro-field-create {
+  /* margin-top: -2px; */
+  background-color: #e0e0e0;
+  /* border-radius: 6px; */
+  border-top-left-radius: 0.2rem;
+  border-top-right-radius: 0.2rem;
+  /* padding-bottom: 5px; */
+}

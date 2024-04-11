@@ -1,0 +1,9 @@
+input {
+    width: 350px !important;
+    height: 40px !important;
+    border-radius: 6px !important;
+    border: 2px solid #1565d8;
+}
+.p-dropdown {
+    width: 350px !important;
+}

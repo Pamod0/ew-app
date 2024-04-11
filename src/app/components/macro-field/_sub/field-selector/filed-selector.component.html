@@ -1,0 +1,89 @@
+<ngx-spinner name="visitTypeMultiSelect_spinner"
+             bdColor="rgba(51,51,51,0.8)"
+             size="medium"
+             color="#fff"
+             type="ball-scale-multiple"
+             [fullScreen]="false">
+</ngx-spinner>
+
+<div class="custom-toolbar-card">
+  <p-toolbar styleClass="toolbar-create-modifier"> 
+      <div class="p-toolbar-group-left">
+      <span style="padding-left: 0.7rem; font-weight: 500;"></span>
+      </div>
+      <div class="p-toolbar-group-right">
+          <p-button icon="pi pi-times" (onClick)="close()" p-button-danger></p-button>
+      </div>
+  </p-toolbar>
+</div>
+
+
+<div class="custom-list-card"
+     style="background-color: #78c8fa; border: 0px solid #78c8fa">
+
+  <div class="custom-data-section">
+    <div class="p-grid">
+      <div class="p-col">
+        <div class="p-fluid">
+
+          <!-- <span class="p-buttonset">
+            <button pButton
+                    type="button"
+                    label="All"
+                    pTooltip="All"
+                    (click)="onAllAddClick()"></button>
+            <button pButton
+                    type="button"
+                    label="Remove All"
+                    pTooltip="Remove All"
+                    (click)="onAllRemoveClick()"></button>
+          </span> -->
+
+          <p-table [value]="_list"
+                   selectionMode="single"
+                   styleClass="p-datatable-gridlines"
+                   dataKey="id"
+                   responsiveLayout="scroll"
+                   (onRowSelect)="onRowSelect($event)"
+                   (onRowUnselect)="onRowUnselect($event)"
+                   [(selection)]="_selectedItem"
+                   [metaKeySelection]="false"
+                   [globalFilterFields]="['name']"
+                   #id_p_table>
+
+            <ng-template pTemplate="caption">
+              <div class="p-d-flex">
+                <span class="p-input-icon-left p-ml-auto">
+                  <i class="pi pi-search"></i>
+                  <input pInputText
+                         type="text"
+                         (input)="id_p_table.filterGlobal($event.target.value, 'contains')"
+                         placeholder="Search Macro Fields" />
+                </span>
+              </div>
+            </ng-template>
+
+
+            <ng-template pTemplate="header"
+                         let-columns>
+              <tr>
+                <th>Macro Fields</th>
+              </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body"
+                         let-rowData>
+
+              <tr [pSelectableRow]="rowData">
+                <td>{{ rowData?.name }}</td>
+              </tr>
+
+            </ng-template>
+
+          </p-table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
