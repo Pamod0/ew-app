@@ -19,6 +19,7 @@
         <ng-template pTemplate="end">
             <div class="card border-noround flex justify-content-center p-0">
                 <p-button
+                    routerLink="/authentication/register"
                     [style]="{
                         color: 'white',
                         backgroundColor: 'black',
@@ -120,9 +121,9 @@
                         color: 'white',
                         backgroundColor: '#004363',
                         borderColor: '#004363',
-                        borderRadius: '25px',
-                        width: '12rem',
-                        height: '3.5rem',
+                        borderRadius: '5px',
+                        width: '10rem',
+                        height: '2.5rem',
                         fontSize: '1.3rem'
                     }"
                     label="More"
@@ -322,21 +323,24 @@
 <div class="card border-noround border-none" style="background: #1565d8">
     <h1 class="text-center text-white mt-6 mb-6">Why we should help</h1>
     <div class="grid" style="padding-left: 10%; padding-right: 10%">
-        <div class="lg:col-6 md:col-6 sm:col-12 flex justify-content-center">
+        <div class="lg:col-6 md:col-6 sm:col-12 flex justify-content-end">
             <img
                 src="../../../assets/layout/images/landing/bottom-pic-1.png"
                 alt=""
                 style="width: 600px; height: 216px"
             />
         </div>
-        <div class="lg:col-6 md:col-6 sm:col-12 flex justify-content-center">
+        <div class="lg:col-6 md:col-6 sm:col-12 flex justify-content-start">
             <img
                 src="../../../assets/layout/images/landing/bottom-pic-2.png"
                 alt=""
                 style="width: 600px; height: 216px"
             />
         </div>
-        <div class="col-12 pl-8 pr-8">
+        <div
+            class="col-12"
+            style="padding-left: 9.45%; padding-right: 9.45%; text-align: justify;"
+        >
             <p class="text-white text-xl mt-4">
                 inviting them to roll up their sleeves and actively participate
                 in restoring the beauty of our shores. MEPA recognizes the
