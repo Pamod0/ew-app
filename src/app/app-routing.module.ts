@@ -31,19 +31,14 @@ const routes: Routes = [
         component: DefaultLayoutComponent,
         children: [
             {
-                path: 'login',
-                component: LoginComponent
-            },
-            {
-                path: 'register',
+                path: '',
                 children: [
                     {
                         path: '',
-                        component: AccountTypeComponent
-                    },
-                    {
-                        path: 'community',
-                        component: RegisterCommunityComponent
+                        loadChildren: () =>
+                            import(
+                                './components/login-register/login-register.module'
+                            ).then((m) => m.LoginRegisterModule)
                     }
                 ]
             }

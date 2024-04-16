@@ -1,100 +1,86 @@
-<div class="container-fluid p-0">
-    <div class="grid">
-        <div
-            class="col-6 flex justify-content-center align-items-center"
-            style="background-color: #1565d8; height: 100vh"
-        >
-            <div class="flex flex-column justify-content-between">
-                <div class="flex justify-content-center align-items-center">
-                    <img
-                        src="../../../../assets/layout/images/logo-main-transparent.png"
-                        alt=""
-                        style="width: 50%"
-                    />
-                </div>
-                <div
-                    class="mt-8 xl:text-xl lg:text-xl md:text-lg text-white sm:text-base"
-                    style="margin-left: 12%; margin-right: 12%"
-                >
-                    <p>
-                        The Marine Pollution Prevention Authority (MPPA) was
-                        established in 1991 inaccordance with the Marine
-                        Pollution Prevention (MPP) Act No 59 of 1981.Initially,
-                        it operated under the Ministry of Port and Shipping
-                        until 1994. However,due to increasing challenges in
-                        marine pollution prevention in Sri Lanka as a resultof
-                        global advancements and economic development activities,
-                        the act was repealed.
-                    </p>
-                    <p>
-                        In its place, the Marine Pollution Prevention Act No. 35
-                        of 2008 was introduced andbecame effective on January 1,
-                        2009. This new legislation took into considerationthe
-                        changing circumstances and aimed to address marine
-                        pollution more effectively.As part of this reform, the
-                        Authority's name was changed to the MarineEnvironment
-                        Protection Authority (MEPA).
-                    </p>
-                    <p>
-                        Presently, the Marine Environment Protection Authority
-                        operates under the purviewof the Minister of Urban
-                        Development & housing. This act has strengthened the
-                        lawenforcement capabilities of the Authority, allowing
-                        them to tackle any acts ofmarine environment pollution
-                        more efficiently and effectively.
-                     </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-6 pt-6 bg-white">
-            <div
-                class="flex justify-content-center align-items-center"
-                style="height: 80vh"
-            >
-                <div
-                    class="card flex justify-content-center align-items-center border-none"
-                    style="height: 50vh; width: 40vw"
-                >
-                    <h1 class="mb-8 text-3xl text-bold">
-                        Login to your account
-                    </h1>
+<ngx-spinner
+    bdColor="rgba(51,51,51,0.8)"
+    size="medium"
+    color="#fff"
+    type="ball-scale-multiple"
+    [fullScreen]="false"
+>
+    <p style="font-size: 12px; color: white">Authenticating...</p>
+</ngx-spinner>
 
-                    <div>
-                        <form [formGroup]="loginForm">
-                            <label for="Email" class="mb-1"> Email </label
-                            ><br />
-                            <input
-                                type="text"
-                                pInputText
-                                formControlName="userId"
-                                class="mb-3"
-                                style="width: 15vw; border: 2px solid #1565d8"
-                            /><br />
-                            <label for="password" class="mb-1"> Password </label
-                            ><br />
-                            <input
-                                type="password"
-                                pInputText
-                                formControlName="password"
-                                style="width: 15vw; border: 2px solid #1565d8"
-                                class="mb-3"
-                            />
-                            <br />
-                            <p-button
-                                [style]="{
-                                    color: 'white',
-                                    borderColor: '#1565d8',
-                                    borderRadius: '5px',
-                                    backgroundColor: '#1565d8',
-                                }"
-                                label="Login"
-                                (click)="onSubmit()"
-                            >
-                            </p-button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+<ui-message></ui-message>
+
+<div
+    [formGroup]="loginForm"
+    class="surface-card p-4 border-round"
+    style="width: 25vw; height: 60vh"
+>
+    <div class="text-center mb-5 mt-5">
+        <img
+            src="../../../../assets/layout/images/logo-square.png"
+            alt="Image"
+            height="50"
+            class="mb-3"
+            style="scale: 1.6"
+        />
+        <div class="text-900 text-3xl font-medium mb-3">Welcome Back</div>
+        <span class="text-600 font-medium line-height-3"
+            >Don't have an account?</span
+        >
+        <a
+            routerLink="/authentication/register"
+            class="font-medium no-underline ml-2 text-blue-500 cursor-pointer"
+            >Create today!</a
+        >
     </div>
+
+    <form [formGroup]="loginForm">
+        <label for="email1" class="block text-900 font-medium mb-2"
+            >Email</label
+        >
+        <input
+            type="text"
+            formControlName="userId"
+            placeholder="Email address"
+            pInputText
+            class="w-full mb-3"
+        />
+
+        <label for="password1" class="block text-900 font-medium mb-2"
+            >Password</label
+        >
+        <input
+            type="password"
+            formControlName="password"
+            placeholder="Password"
+            pInputText
+            class="w-full mb-3"
+        />
+
+        <div class="flex align-items-center justify-content-between mb-6">
+            <div class="flex align-items-center">
+                <p-checkbox
+                    id="rememberme1"
+                    [binary]="true"
+                    styleClass="mr-2"
+                ></p-checkbox>
+                <label for="rememberme1" class="text-900">Remember me</label>
+            </div>
+            <a
+                class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer"
+                >Forgot password?</a
+            >
+        </div>
+
+        <div class="flex justify-content-center">
+            <button
+                (click)="onSubmit()"
+                pButton
+                pRipple
+                label="Sign In"
+                icon="pi pi-user"
+                class="w-6"
+            ></button>
+        </div>
+    </form>
 </div>

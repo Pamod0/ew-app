@@ -55,7 +55,7 @@ export class AppTopBarComponent {
         console.log(event);
         event.preventDefault();
         this.currentUserService.clearAuthenticationContext();
-        this.router.navigate(['/authentication/login']);
+        this.router.navigate(['/public']);
         console.log(event);
         
       }

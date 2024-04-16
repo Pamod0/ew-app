@@ -17,16 +17,18 @@ import { ContainersModule } from './containers/containers.module';
 import { ComponentsModule } from './components/components.module';
 import { SharedModule } from './shared/shared.module';
 import { SecurityModule } from './modules/security/security.module';
+import { LoginRegisterModule } from './components/login-register/login-register.module';
 
 import { NgxPermissionsService } from 'ngx-permissions';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { EnvServiceProvider } from './env.service.provider';
 import { AuthenticationService, PermissionService } from './shared/services';
 
-import { LoadingBarHttpClientModule } from "@ngx-loading-bar/http-client";
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 
 @NgModule({
-    declarations: [AppComponent,],
+    declarations: [AppComponent],
 
     imports: [
         BrowserModule,
@@ -39,11 +41,12 @@ import { LoadingBarHttpClientModule } from "@ngx-loading-bar/http-client";
         PrimengModule,
         ContainersModule,
         ComponentsModule,
+        LoginRegisterModule,
         SharedModule,
         SecurityModule,
         NgxPermissionsModule.forRoot(),
         LoadingBarHttpClientModule,
-
+        NgxSpinnerModule
     ],
     providers: [
         EnvServiceProvider,
