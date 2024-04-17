@@ -7,15 +7,9 @@ export { SystemEnvironments } from './system-environment.enum';
 
 export { Gender } from './gender.enum';
 
-export { PatientRelationships } from './patient-relationships.enum';
-export { PatientMet } from './patient-met.enums';
-export { PatientAppliesToOfficeVisit } from './patient-applies-to-office-visit.enum';
-
 export { ReportOption } from './report-option.enum';
 export { DropdownType } from './dropdown-type.enum';
-export { PatientOccupation } from './patient-occupation.enum';
 
 export { YesNoEnum } from './yes-no.enum';
 
-
-
+export { RegisterComunityIndividual } from './register-comunity-individual.enum';
