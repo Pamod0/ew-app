@@ -52,41 +52,42 @@ export class LoginComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
-        this.route.queryParams.subscribe((params) => {
-            if (
-                params.registered !== undefined &&
-                params.registered === 'true'
-            ) {
-                this.attorney_registered = 'true';
-                alert(
-                    'In order  to verify your email address, we have sent you an email. Please open the email and click on the provided link within 24 hours. After that login to your account.'
-                );
-                //this.infoMessage = 'In order  to verify your email address, we have sent you an email. Please open the email and click on the provided link within 1 hour. After that login to your account.';
-            }
-        });
+        // this.route.queryParams.subscribe((params) => {
+        //     if (
+        //         params.registered !== undefined &&
+        //         params.registered === 'true'
+        //     ) {
+        //         this.attorney_registered = 'true';
+        //         alert(
+        //             'In order  to verify your email address, we have sent you an email. Please open the email and click on the provided link within 24 hours. After that login to your account.'
+        //         );
+        //         //this.infoMessage = 'In order  to verify your email address, we have sent you an email. Please open the email and click on the provided link within 1 hour. After that login to your account.';
+        //     }
+        // });
 
         this.loginForm = this.formBuilder.group({
             userId: ['', Validators.required],
             password: ['', Validators.required]
         });
 
-        this.returnUrl = this.route.snapshot.queryParams['returnurl'] || '/';
+        // this.returnUrl = this.route.snapshot.queryParams['returnurl'] || '/';
 
-        this.activationKey =
-            this.route.snapshot.queryParams['activationkey'] || '';
+        // this.activationKey =
+        //     this.route.snapshot.queryParams['activationkey'] || '';
+
         this.currentUserService.clearAuthenticationContext();
 
-        this._loginType = this.route.snapshot.queryParams['type'] || '';
+        // this._loginType = this.route.snapshot.queryParams['type'] || '';
 
         let loader = document.getElementById('loading');
 
         loader.style.display = 'none';
 
-        switch (this._loginType) {
-            case 'attorney':
-                this._isAttorney = true;
-                break;
-        }
+        // switch (this._loginType) {
+        //     case 'attorney':
+        //         this._isAttorney = true;
+        //         break;
+        // }
     }
 
     ngAfterViewInit(): void {}
@@ -147,6 +148,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
                         if (authenticationContext?.userTypeId == 11) {
                             this.router.navigate(['/gate']);
                         } else {
+                            console.log('navigating to public');
                             this.router.navigate(['/public']);
                         }
                     }

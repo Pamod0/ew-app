@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { EnvService } from '../../env.service';
+import { EnvService } from '../../../../env.service';
 import { catchError, map } from 'rxjs/operators';
 import { IUserProfile } from './user-profile.model';
 
